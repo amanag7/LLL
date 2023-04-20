@@ -16,3 +16,5 @@ nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root
 nohup python train_experiment_adapter_from_scratch_mam_config.py --data_dir data --model_dir_root models --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 12 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_3og_adap.out
 
 nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root new_models --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 12 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root new_models --seq_train_type lll --model_name gpt2 --n_gpus 6 --n_workers 75 --fp32 --n_train_epochs 2 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_testing_3og_preadap.out

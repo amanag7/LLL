@@ -81,6 +81,9 @@ def parse_args():
         torch.manual_seed(0)
         torch.backends.cudnn.deterministric = True
 
+    parent_path = "../../"
+    args.data_dir = os.path.join(parent_path,args.data_dir)
+    args.model_dir_root = os.path.join(parent_path,args.model_dir_root)
     args.model_dir_root = os.path.join(args.model_dir_root, args.model_name,
             args.seq_train_type, "{}_{}".format("_".join(args.tasks),
                 args.gen_lm_sample_percentage) if "lll" in args.seq_train_type else "_".join(args.tasks))

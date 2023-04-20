@@ -1,0 +1,14 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0, 1, 2, 3, 4, 5], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[32429.600000000002, 42158.48, 42158.48, 42158.48, 42158.48, 42158.48], min_batch_size=4, min_n_steps=1500, model_dir_root='../../new_models/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=6, n_train_epochs={'sst': 2, 'srl': 2, 'woz.en': 2}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], unbound=0, use_sep=False, weight_decay=0.01)
+2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-04-20 12:23:32,395 - 0:00:06 - 2.3s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-04-20 12:23:36,391 - 0:00:10 - 4.0s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 13840
+Traceback (most recent call last):
+  File "train_experiment_prefix_adapter.py", line 285, in <module>
+    model = train([task_id], model)
+  File "train_experiment_prefix_adapter.py", line 153, in train
+    model.add_adapter(tasks[0], config=adapter_config)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'GPT2LMHeadModel' object has no attribute 'add_adapter'
