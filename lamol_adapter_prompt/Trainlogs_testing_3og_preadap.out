@@ -1,14 +1,38 @@
 Not all gpus support fp16 training! Will use fp32 instead.
-2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0, 1, 2, 3, 4, 5], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[32429.600000000002, 42158.48, 42158.48, 42158.48, 42158.48, 42158.48], min_batch_size=4, min_n_steps=1500, model_dir_root='../../new_models/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=6, n_train_epochs={'sst': 2, 'srl': 2, 'woz.en': 2}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], unbound=0, use_sep=False, weight_decay=0.01)
-2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
-2023-04-20 12:23:30,125 - 0:00:04 - 0.0s - INFO - __main__ - extra training data size: 0
-2023-04-20 12:23:32,395 - 0:00:06 - 2.3s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
-2023-04-20 12:23:36,391 - 0:00:10 - 4.0s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 13840
-Traceback (most recent call last):
-  File "train_experiment_prefix_adapter.py", line 285, in <module>
-    model = train([task_id], model)
-  File "train_experiment_prefix_adapter.py", line 153, in train
-    model.add_adapter(tasks[0], config=adapter_config)
-  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
-    raise AttributeError("'{}' object has no attribute '{}'".format(
-AttributeError: 'GPT2LMHeadModel' object has no attribute 'add_adapter'
+2023-04-22 13:18:36,727 - 0:00:15 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0, 1, 2, 3, 4, 5], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[32429.600000000002, 42158.48, 42158.48, 42158.48, 42158.48, 42158.48], min_batch_size=4, min_n_steps=1500, model_dir_root='../../new_models/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=6, n_train_epochs={'sst': 2, 'srl': 2, 'woz.en': 2}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[11350, 14755, 14755, 14755, 14755, 14755], unbound=0, use_sep=False, weight_decay=0.01)
+2023-04-22 13:18:36,727 - 0:00:15 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-04-22 13:18:36,727 - 0:00:15 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-04-22 13:18:39,269 - 0:00:18 - 2.5s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-04-22 13:18:43,038 - 0:00:22 - 3.8s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 13840
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2023-04-22 13:20:55,272 - 0:02:34 - 132.2s - INFO - __main__ - progress 0.578 , lr 4.5E-05 , loss 1.856 , qa loss 1.856 , lm loss 0.000 , avg batch size 4.0
+2023-04-22 13:22:25,313 - 0:04:04 - 90.0s - INFO - __main__ - epoch 1/2 done , tot steps 1730 , lr 3.1E-05 , loss 1.21 , qa loss 1.21 , lm loss 0.00 , avg batch size 4.0
+2023-04-22 13:24:24,638 - 0:06:03 - 119.3s - INFO - __main__ - progress 1.578 , lr 1.3E-05 , loss 0.269 , qa loss 0.269 , lm loss 0.000 , avg batch size 4.0
+2023-04-22 13:25:56,891 - 0:07:35 - 92.3s - INFO - __main__ - epoch 2/2 done , tot steps 3460 , lr 1.5E-07 , loss 0.26 , qa loss 0.26 , lm loss 0.00 , avg batch size 4.0
+2023-04-22 13:26:04,465 - 0:07:43 - 7.6s - INFO - __main__ - start to train { task: ['srl'], seq train type: lll }
+2023-04-22 13:26:17,788 - 0:07:56 - 13.3s - INFO - utils - writing extra data in ../../new_models/gpt2/lll/sst_srl_woz.en_0.0/sst/lm.csv ...
+2023-04-22 13:26:17,789 - 0:07:56 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-04-22 13:26:17,909 - 0:07:57 - 0.1s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+The current active adapter is Stack[sst]
+The task with which model is saved sst
+2023-04-22 13:26:22,788 - 0:08:01 - 4.9s - INFO - __main__ - len of train dataset: 6414 , max train batch size 4 , num of opt steps: 12828
+2023-04-22 13:29:32,432 - 0:11:11 - 189.6s - INFO - __main__ - progress 0.624 , lr 4.3E-05 , loss 3.845 , qa loss 3.845 , lm loss 0.000 , avg batch size 4.0
+2023-04-22 13:31:26,138 - 0:13:05 - 113.7s - INFO - __main__ - epoch 1/2 done , tot steps 1604 , lr 3.1E-05 , loss 2.87 , qa loss 2.87 , lm loss 0.00 , avg batch size 4.0
+2023-04-22 13:34:32,451 - 0:16:11 - 186.3s - INFO - __main__ - progress 1.624 , lr 1.2E-05 , loss 1.001 , qa loss 1.001 , lm loss 0.000 , avg batch size 4.0
+2023-04-22 13:36:28,554 - 0:18:07 - 116.1s - INFO - __main__ - epoch 2/2 done , tot steps 3208 , lr 1.6E-07 , loss 0.97 , qa loss 0.97 , lm loss 0.00 , avg batch size 4.0
+2023-04-22 13:36:36,035 - 0:18:15 - 7.5s - INFO - __main__ - start to train { task: ['woz.en'], seq train type: lll }
+2023-04-22 13:36:38,785 - 0:18:17 - 2.7s - INFO - utils - writing extra data in ../../new_models/gpt2/lll/sst_srl_woz.en_0.0/srl/lm.csv ...
+2023-04-22 13:36:38,813 - 0:18:17 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-04-22 13:36:38,941 - 0:18:18 - 0.1s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+The current active adapter is Stack[sst]
+The task with which model is saved sst
+2023-04-22 13:36:45,300 - 0:18:24 - 6.4s - INFO - __main__ - len of train dataset: 2536 , max train batch size 4 , num of opt steps: 5072
+2023-04-22 13:38:15,531 - 0:19:54 - 90.2s - INFO - __main__ - epoch 1/2 done , tot steps 634 , lr 3.1E-05 , loss 5.81 , qa loss 5.81 , lm loss 0.00 , avg batch size 4.0
+2023-04-22 13:39:44,080 - 0:21:23 - 88.5s - INFO - __main__ - epoch 2/2 done , tot steps 1268 , lr 1.5E-07 , loss 0.66 , qa loss 0.66 , lm loss 0.00 , avg batch size 4.0
+The current active adapter is Stack[sst]
+The task with which model is saved sst
+Wall Execution time: 00:21:14
+CPU Execution time: 00:23:02

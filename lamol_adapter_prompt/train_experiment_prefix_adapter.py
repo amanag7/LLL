@@ -27,17 +27,19 @@ def train(task_ids, model):
     logger.info("start to train { task: %s, seq train type: %s }" % (tasks, args.seq_train_type))
     model_dir = get_model_dir(tasks)
     make_dir(model_dir)
+
+    adapter_config = ConfigUnion(
+                            AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=6, non_linearity="relu"),
+#                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
+                            # AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=80, bottleneck_size=16)
+                        )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();
         model = MODEL_CLASS.from_pretrained(args.model_name).cuda()
         model.resize_token_embeddings(len(TOKENIZER))
         adapter_name = args.tasks[0].replace(".", "_")
-        adapter_config = ConfigUnion(
-                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=3, non_linearity="relu"),
-#                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=20, bottleneck_size=16)
-                        )
+        
 #         adapter_config =  ConfigUnion(PrefixTuningConfig(bottleneck_size=800), ParallelConfig(),)
         model.add_adapter(adapter_name, config=adapter_config)
         model.set_active_adapters(adapter_name)
@@ -144,11 +146,6 @@ def train(task_ids, model):
 #     import pdb;pdb.set_trace();
     if task_ids[0]==0:
         # Adding Adapter Modules
-        adapter_config = ConfigUnion(
-                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=3, non_linearity="relu"),
-#                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu")
-                        )
 #         adapter_config =  ConfigUnion(PrefixTuningConfig(bottleneck_size=800), ParallelConfig(),)
         model.add_adapter(tasks[0], config=adapter_config)
         model.set_active_adapters(tasks[0])
@@ -238,7 +235,8 @@ def train(task_ids, model):
         
 #         adapter_name = args.tasks[task_ids[0]].replace(".", "_")   ##Change
         adapter_name = args.tasks[0].replace(".", "_")
-        torch.save(model.state_dict(), os.path.join(model_dir, SAVE_NAME+str(ep+1)))
+        if ep==0:
+            torch.save(model.state_dict(), os.path.join(model_dir, SAVE_NAME+str(ep+1)))
         model.save_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)), adapter_name)
         ### Addition ends here
         tot_n_steps += (n_steps + 1)
