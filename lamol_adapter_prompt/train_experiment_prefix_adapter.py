@@ -32,7 +32,7 @@ def train(task_ids, model):
                             AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=6, non_linearity="relu"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
                             # AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=80, bottleneck_size=16)
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=160, bottleneck_size=16)
                         )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();

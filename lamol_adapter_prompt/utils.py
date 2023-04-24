@@ -567,7 +567,7 @@ def sample_sequence(model, need_process, qa_results, all_pasts, max_tot_lens,tes
             next_logits = outputs[..., -1, :] / args.temperature_qa
             next_tokens = logits_to_tokens(next_logits,test_run).cpu()
 #             import pdb;pdb.set_trace();
-            print(f"The generated tokens are {' '.join([TOKENIZER.decode(each_token) for each_token in next_tokens])}")
+            # print(f"The generated tokens are {' '.join([TOKENIZER.decode(each_token) for each_token in next_tokens])}")
 
             for i, cur_id in enumerate(batch_ids):
 #                 logger.info(f"Final Layer id before addition for cur id {cur_id} Shape is {all_pasts[layer_id][cur_id].shape}")

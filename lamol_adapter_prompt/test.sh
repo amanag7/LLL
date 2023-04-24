@@ -14,3 +14,5 @@ nohup python test_adapter_from_scratch.py --data_dir data --model_dir new_models
 python test_adapter_from_scratch.py --data_dir data --model_dir new_models --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 25 --n_train_epochs 2 --gen_lm_sample_percentage 0.0 --tasks sst srl woz.en --lm_lambda 0.0
 
 python test_adapter_from_scratch.py --data_dir data --model_dir model_conf1 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 25 --n_train_epochs 12 --gen_lm_sample_percentage 0.0 --tasks sst srl woz.en --lm_lambda 0.0
+
+python test_adapter_from_scratch.py --data_dir data --model_dir model_conf2 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 25 --n_train_epochs 12 --gen_lm_sample_percentage 0.0 --tasks sst srl woz.en --lm_lambda 0.0

@@ -109,7 +109,7 @@ def test_one_to_many(task_load):
     for ep in range(args.n_train_epochs[task_load]):
 #         import pdb;pdb.set_trace();
         model_dir = get_model_dir([task_load])
-        model_path = os.path.join(model_dir, 'model-2')
+        model_path = os.path.join(model_dir, 'model-1')
         config_path = os.path.join(model_dir,CONFIG_NAME)
 
         gen_token = get_gen_token(task_load)
