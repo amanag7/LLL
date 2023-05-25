@@ -29,10 +29,10 @@ def train(task_ids, model):
     make_dir(model_dir)
 
     adapter_config = ConfigUnion(
-                            AdapterConfig(mh_adapter=True, output_adapter=True, reduction_factor=6, non_linearity="relu"),
+                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=6, non_linearity="relu"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            # AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
-                            # PrefixTuningConfig(cross_prefix=True, prefix_length=40, bottleneck_size=16)
+                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=160, bottleneck_size=32)
                         )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();

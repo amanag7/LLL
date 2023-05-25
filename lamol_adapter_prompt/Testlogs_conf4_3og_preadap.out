@@ -1,0 +1,259 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-04-28 16:53:11,879 - 0:00:04 - 0.0s - INFO - __main__ - args = Namespace(adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0], dynamic_epochs=False, fp32=False, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_conf4/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 12, 'srl': 12, 'woz.en': 12}, n_warmup_ratio=0.005, n_workers=25, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+  0%|          | 0/12 [00:00<?, ?it/s]2023-04-28 16:53:31,274 - 0:00:24 - 19.4s - INFO - __main__ - task: sst, epoch: 1
+2023-04-28 16:53:31,274 - 0:00:24 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 16:53:32,285 - 0:00:25 - 1.0s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 16:53:35,372 - 0:00:28 - 3.1s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 16:53:36,632 - 0:00:29 - 1.3s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 16:58:40,110 - 0:05:33 - 303.5s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 16:58:41,010 - 0:05:33 - 0.9s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:01:58,982 - 0:08:51 - 198.0s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+  8%|▊         | 1/12 [08:47<1:36:38, 527.10s/it]2023-04-28 17:02:11,424 - 0:09:04 - 12.4s - INFO - __main__ - task: sst, epoch: 2
+2023-04-28 17:02:11,424 - 0:09:04 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:02:12,468 - 0:09:05 - 1.0s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:02:14,881 - 0:09:07 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:02:16,606 - 0:09:09 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:07:23,087 - 0:14:16 - 306.5s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:07:24,227 - 0:14:17 - 1.1s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:10:48,965 - 0:17:41 - 204.7s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 17%|█▋        | 2/12 [17:37<1:28:07, 528.80s/it]2023-04-28 17:11:02,435 - 0:17:55 - 13.5s - INFO - __main__ - task: sst, epoch: 3
+2023-04-28 17:11:02,435 - 0:17:55 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:11:04,074 - 0:17:57 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:11:06,428 - 0:17:59 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:11:08,099 - 0:18:01 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:16:22,039 - 0:23:15 - 313.9s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:16:23,576 - 0:23:16 - 1.5s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:19:52,506 - 0:26:45 - 208.9s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 25%|██▌       | 3/12 [26:40<1:20:19, 535.53s/it]2023-04-28 17:20:11,414 - 0:27:04 - 18.9s - INFO - __main__ - task: sst, epoch: 4
+2023-04-28 17:20:11,414 - 0:27:04 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:20:13,077 - 0:27:06 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:20:15,651 - 0:27:08 - 2.6s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:20:17,498 - 0:27:10 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:25:34,377 - 0:32:27 - 316.9s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:25:36,170 - 0:32:29 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:29:03,993 - 0:35:56 - 207.8s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 33%|███▎      | 4/12 [35:52<1:12:14, 541.83s/it]2023-04-28 17:29:20,394 - 0:36:13 - 16.4s - INFO - __main__ - task: sst, epoch: 5
+2023-04-28 17:29:20,394 - 0:36:13 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:29:22,126 - 0:36:15 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:29:24,589 - 0:36:17 - 2.5s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:29:26,329 - 0:36:19 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:34:49,592 - 0:41:42 - 323.3s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:34:51,356 - 0:41:44 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:38:20,261 - 0:45:13 - 208.9s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 42%|████▏     | 5/12 [45:08<1:03:49, 547.04s/it]2023-04-28 17:38:34,770 - 0:45:27 - 14.5s - INFO - __main__ - task: sst, epoch: 6
+2023-04-28 17:38:34,771 - 0:45:27 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:38:36,524 - 0:45:29 - 1.8s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:38:38,914 - 0:45:31 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:38:40,644 - 0:45:33 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:43:55,185 - 0:50:48 - 314.5s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:43:57,006 - 0:50:49 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:47:21,724 - 0:54:14 - 204.7s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 50%|█████     | 6/12 [54:09<54:30, 545.14s/it]  2023-04-28 17:47:38,348 - 0:54:31 - 16.6s - INFO - __main__ - task: sst, epoch: 7
+2023-04-28 17:47:38,348 - 0:54:31 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:47:40,087 - 0:54:33 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:47:42,522 - 0:54:35 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:47:44,336 - 0:54:37 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 17:53:02,057 - 0:59:55 - 317.7s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 17:53:03,869 - 0:59:56 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 17:56:37,121 - 1:03:30 - 213.3s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 58%|█████▊    | 7/12 [1:03:25<45:42, 548.49s/it]2023-04-28 17:56:52,304 - 1:03:45 - 15.2s - INFO - __main__ - task: sst, epoch: 8
+2023-04-28 17:56:52,304 - 1:03:45 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 17:56:54,048 - 1:03:47 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 17:56:56,432 - 1:03:49 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 17:56:58,227 - 1:03:51 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 18:02:20,003 - 1:09:12 - 321.8s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 18:02:21,829 - 1:09:14 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 18:05:51,511 - 1:12:44 - 209.7s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 67%|██████▋   | 8/12 [1:12:39<36:41, 550.37s/it]2023-04-28 18:06:06,922 - 1:12:59 - 15.4s - INFO - __main__ - task: sst, epoch: 9
+2023-04-28 18:06:06,922 - 1:12:59 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 18:06:08,650 - 1:13:01 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 18:06:11,112 - 1:13:04 - 2.5s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 18:06:12,906 - 1:13:05 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 18:11:35,548 - 1:18:28 - 322.6s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 18:11:37,313 - 1:18:30 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 18:15:10,119 - 1:22:03 - 212.8s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 75%|███████▌  | 9/12 [1:21:58<27:38, 552.95s/it]2023-04-28 18:15:22,712 - 1:22:15 - 12.6s - INFO - __main__ - task: sst, epoch: 10
+2023-04-28 18:15:22,713 - 1:22:15 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 18:15:24,528 - 1:22:17 - 1.8s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 18:15:27,060 - 1:22:20 - 2.5s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 18:15:28,879 - 1:22:21 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 18:20:47,770 - 1:27:40 - 318.9s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 18:20:49,656 - 1:27:42 - 1.9s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 18:24:23,169 - 1:31:16 - 213.5s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 83%|████████▎ | 10/12 [1:31:11<18:25, 552.98s/it]2023-04-28 18:24:42,011 - 1:31:34 - 18.8s - INFO - __main__ - task: sst, epoch: 11
+2023-04-28 18:24:42,011 - 1:31:34 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 18:24:43,791 - 1:31:36 - 1.8s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 18:24:46,189 - 1:31:39 - 2.4s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 18:24:47,991 - 1:31:40 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 18:30:07,305 - 1:37:00 - 319.3s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 18:30:09,171 - 1:37:02 - 1.9s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 18:33:39,776 - 1:40:32 - 210.6s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 92%|█████████▏| 11/12 [1:40:27<09:14, 554.09s/it]2023-04-28 18:33:58,721 - 1:40:51 - 18.9s - INFO - __main__ - task: sst, epoch: 12
+2023-04-28 18:33:58,722 - 1:40:51 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-04-28 18:34:00,605 - 1:40:53 - 1.9s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 18:34:03,122 - 1:40:56 - 2.5s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-04-28 18:34:05,015 - 1:40:57 - 1.9s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 18:39:21,219 - 1:46:14 - 316.2s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-04-28 18:39:23,116 - 1:46:16 - 1.9s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 18:42:48,673 - 1:49:41 - 205.6s - INFO - __main__ - score: {'sst': OrderedDict([('em', 78.5831960461285), ('nf1', 78.5831960461285), ('nem', 78.5831960461285)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+100%|██████████| 12/12 [1:49:36<00:00, 552.51s/it]100%|██████████| 12/12 [1:49:36<00:00, 548.07s/it]
+  0%|          | 0/12 [00:00<?, ?it/s]2023-04-28 18:43:14,305 - 1:50:07 - 25.6s - INFO - __main__ - task: srl, epoch: 1
+2023-04-28 18:43:14,306 - 1:50:07 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 18:43:16,266 - 1:50:09 - 2.0s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 18:43:18,861 - 1:50:11 - 2.6s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 18:43:20,812 - 1:50:13 - 2.0s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 19:02:50,133 - 2:09:43 - 1169.3s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 19:02:51,949 - 2:09:44 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 19:13:24,500 - 2:20:17 - 632.6s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+  8%|▊         | 1/12 [30:35<5:36:34, 1835.82s/it]2023-04-28 19:13:40,436 - 2:20:33 - 15.9s - INFO - __main__ - task: srl, epoch: 2
+2023-04-28 19:13:40,436 - 2:20:33 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 19:13:42,092 - 2:20:35 - 1.7s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 19:13:44,570 - 2:20:37 - 2.5s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 19:13:46,355 - 2:20:39 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 19:35:34,780 - 2:42:27 - 1308.4s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 19:35:36,585 - 2:42:29 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 19:45:44,415 - 2:52:37 - 607.8s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 17%|█▋        | 2/12 [1:02:55<5:16:10, 1897.05s/it]2023-04-28 19:45:58,544 - 2:52:51 - 14.1s - INFO - __main__ - task: srl, epoch: 3
+2023-04-28 19:45:58,544 - 2:52:51 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 19:46:00,298 - 2:52:53 - 1.8s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 19:46:02,613 - 2:52:55 - 2.3s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 19:46:04,307 - 2:52:57 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 20:06:29,681 - 3:13:22 - 1225.4s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 20:06:31,354 - 3:13:24 - 1.7s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 20:17:00,754 - 3:23:53 - 629.4s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 25%|██▌       | 3/12 [1:34:12<4:43:08, 1887.59s/it]2023-04-28 20:17:14,264 - 3:24:07 - 13.5s - INFO - __main__ - task: srl, epoch: 4
+2023-04-28 20:17:14,264 - 3:24:07 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 20:17:15,854 - 3:24:08 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 20:17:18,364 - 3:24:11 - 2.5s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 20:17:20,104 - 3:24:13 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 20:37:25,799 - 3:44:18 - 1205.7s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 20:37:27,491 - 3:44:20 - 1.7s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 20:54:06,698 - 4:00:59 - 999.2s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 33%|███▎      | 4/12 [2:11:18<4:29:29, 2021.17s/it]2023-04-28 20:54:20,832 - 4:01:13 - 14.1s - INFO - __main__ - task: srl, epoch: 5
+2023-04-28 20:54:20,833 - 4:01:13 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 20:54:22,473 - 4:01:15 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 20:54:24,805 - 4:01:17 - 2.3s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 20:54:26,355 - 4:01:19 - 1.5s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 21:14:05,554 - 4:20:58 - 1179.2s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 21:14:07,076 - 4:21:00 - 1.5s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 21:25:16,518 - 4:32:09 - 669.4s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 42%|████▏     | 5/12 [2:42:27<3:49:26, 1966.59s/it]2023-04-28 21:25:30,442 - 4:32:23 - 13.9s - INFO - __main__ - task: srl, epoch: 6
+2023-04-28 21:25:30,442 - 4:32:23 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 21:25:32,014 - 4:32:24 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 21:25:34,518 - 4:32:27 - 2.5s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 21:25:36,339 - 4:32:29 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 21:45:26,308 - 4:52:19 - 1190.0s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 21:45:28,023 - 4:52:20 - 1.7s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 21:56:08,186 - 5:03:01 - 640.2s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 50%|█████     | 6/12 [3:13:19<3:12:45, 1927.52s/it]2023-04-28 21:56:22,030 - 5:03:14 - 13.8s - INFO - __main__ - task: srl, epoch: 7
+2023-04-28 21:56:22,030 - 5:03:14 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 21:56:23,830 - 5:03:16 - 1.8s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 21:56:26,368 - 5:03:19 - 2.5s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 21:56:28,203 - 5:03:21 - 1.8s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 22:15:15,549 - 5:22:08 - 1127.3s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 22:15:17,391 - 5:22:10 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 22:25:53,956 - 5:32:46 - 636.6s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 58%|█████▊    | 7/12 [3:43:05<2:36:45, 1881.18s/it]2023-04-28 22:26:08,134 - 5:33:01 - 14.2s - INFO - __main__ - task: srl, epoch: 8
+2023-04-28 22:26:08,134 - 5:33:01 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 22:26:09,735 - 5:33:02 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 22:26:11,998 - 5:33:04 - 2.3s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 22:26:13,606 - 5:33:06 - 1.6s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 23:00:02,330 - 6:06:55 - 2028.7s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 23:00:03,994 - 6:06:56 - 1.7s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 23:16:54,318 - 6:23:47 - 1010.3s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 67%|██████▋   | 8/12 [4:34:05<2:30:26, 2256.57s/it]2023-04-28 23:17:08,036 - 6:24:01 - 13.7s - INFO - __main__ - task: srl, epoch: 9
+2023-04-28 23:17:08,036 - 6:24:01 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 23:17:09,655 - 6:24:02 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 23:17:12,095 - 6:24:05 - 2.4s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 23:17:13,808 - 6:24:06 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-28 23:35:53,450 - 6:42:46 - 1119.6s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-28 23:35:55,028 - 6:42:47 - 1.6s - INFO - __main__ - len of test dataset: 1646
+2023-04-28 23:46:15,388 - 6:53:08 - 620.4s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 75%|███████▌  | 9/12 [5:03:26<1:45:05, 2101.67s/it]2023-04-28 23:46:35,445 - 6:53:28 - 20.1s - INFO - __main__ - task: srl, epoch: 10
+2023-04-28 23:46:35,446 - 6:53:28 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-28 23:46:37,085 - 6:53:30 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-28 23:46:39,450 - 6:53:32 - 2.4s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-28 23:46:41,144 - 6:53:34 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 00:05:12,802 - 7:12:05 - 1111.7s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-29 00:05:14,305 - 7:12:07 - 1.5s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 00:15:23,592 - 7:22:16 - 609.3s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 83%|████████▎ | 10/12 [5:32:34<1:06:25, 1992.55s/it]2023-04-29 00:15:37,871 - 7:22:30 - 14.3s - INFO - __main__ - task: srl, epoch: 11
+2023-04-29 00:15:37,871 - 7:22:30 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-29 00:15:39,506 - 7:22:32 - 1.6s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 00:15:41,859 - 7:22:34 - 2.4s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-29 00:15:43,473 - 7:22:36 - 1.6s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 00:34:33,337 - 7:41:26 - 1129.9s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-29 00:34:34,616 - 7:41:27 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 00:54:55,070 - 8:01:48 - 1220.5s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+ 92%|█████████▏| 11/12 [6:12:06<35:08, 2108.52s/it]  2023-04-29 00:55:09,325 - 8:02:02 - 14.3s - INFO - __main__ - task: srl, epoch: 12
+2023-04-29 00:55:09,325 - 8:02:02 - 0.0s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-04-29 00:55:10,492 - 8:02:03 - 1.2s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 00:55:12,854 - 8:02:05 - 2.4s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-04-29 00:55:14,520 - 8:02:07 - 1.7s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 01:19:48,645 - 8:26:41 - 1474.1s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-04-29 01:19:49,952 - 8:26:42 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 01:38:27,210 - 8:45:20 - 1117.3s - INFO - __main__ - score: {'sst': OrderedDict([('em', 30.093355299286106), ('nf1', 30.093355299286106), ('nem', 30.093355299286106)]), 'srl': OrderedDict([('em', 17.310313493866424), ('nf1', 33.16394127259563), ('nem', 19.627442071785552)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 16.244839458258628), ('nem', 2.187120291616039), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+100%|██████████| 12/12 [6:55:38<00:00, 2261.73s/it]100%|██████████| 12/12 [6:55:38<00:00, 2078.21s/it]
+  0%|          | 0/12 [00:00<?, ?it/s]2023-04-29 01:39:12,252 - 8:46:05 - 45.0s - INFO - __main__ - task: woz.en, epoch: 1
+2023-04-29 01:39:12,252 - 8:46:05 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 01:39:13,784 - 8:46:06 - 1.5s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 01:39:15,752 - 8:46:08 - 2.0s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 01:39:17,049 - 8:46:10 - 1.3s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 02:40:03,836 - 9:46:56 - 3646.8s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 02:40:05,123 - 9:46:58 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 02:59:54,983 - 10:06:47 - 1189.9s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+  8%|▊         | 1/12 [1:21:27<14:56:05, 4887.76s/it]2023-04-29 03:00:08,853 - 10:07:01 - 13.9s - INFO - __main__ - task: woz.en, epoch: 2
+2023-04-29 03:00:08,854 - 10:07:01 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 03:00:09,967 - 10:07:02 - 1.1s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 03:00:11,716 - 10:07:04 - 1.7s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 03:00:12,938 - 10:07:05 - 1.2s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 04:06:18,188 - 11:13:11 - 3965.3s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 04:06:19,407 - 11:13:12 - 1.2s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 04:23:45,563 - 11:30:38 - 1046.2s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 17%|█▋        | 2/12 [2:45:18<13:48:37, 4971.77s/it]2023-04-29 04:24:01,485 - 11:30:54 - 15.9s - INFO - __main__ - task: woz.en, epoch: 3
+2023-04-29 04:24:01,485 - 11:30:54 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 04:24:02,617 - 11:30:55 - 1.1s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 04:24:04,390 - 11:30:57 - 1.8s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 04:24:05,589 - 11:30:58 - 1.2s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 05:42:01,136 - 12:48:54 - 4675.5s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 05:42:02,310 - 12:48:55 - 1.2s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 05:57:48,927 - 13:04:41 - 946.6s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 25%|██▌       | 3/12 [4:19:21<13:11:45, 5278.44s/it]2023-04-29 05:58:03,146 - 13:04:56 - 14.2s - INFO - __main__ - task: woz.en, epoch: 4
+2023-04-29 05:58:03,147 - 13:04:56 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 05:58:04,327 - 13:04:57 - 1.2s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 05:58:06,500 - 13:04:59 - 2.2s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 05:58:07,981 - 13:05:00 - 1.5s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 06:31:51,813 - 13:38:44 - 2023.8s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 06:31:53,146 - 13:38:46 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 06:40:39,286 - 13:47:32 - 526.1s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 33%|███▎      | 4/12 [5:02:12<9:21:14, 4209.32s/it] 2023-04-29 06:40:52,008 - 13:47:44 - 12.7s - INFO - __main__ - task: woz.en, epoch: 5
+2023-04-29 06:40:52,008 - 13:47:44 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 06:40:53,282 - 13:47:46 - 1.3s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 06:40:55,459 - 13:47:48 - 2.2s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 06:40:56,947 - 13:47:49 - 1.5s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 07:13:15,062 - 14:20:08 - 1938.1s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 07:13:16,385 - 14:20:09 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 07:22:06,339 - 14:28:59 - 530.0s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 42%|████▏     | 5/12 [5:43:39<6:58:37, 3588.26s/it]2023-04-29 07:22:18,842 - 14:29:11 - 12.5s - INFO - __main__ - task: woz.en, epoch: 6
+2023-04-29 07:22:18,842 - 14:29:11 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 07:22:20,146 - 14:29:13 - 1.3s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 07:22:22,130 - 14:29:15 - 2.0s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 07:22:23,476 - 14:29:16 - 1.3s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 07:56:05,760 - 15:02:58 - 2022.3s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 07:56:07,046 - 15:03:00 - 1.3s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 08:04:57,515 - 15:11:50 - 530.5s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 50%|█████     | 6/12 [6:26:30<5:24:14, 3242.45s/it]2023-04-29 08:05:10,029 - 15:12:02 - 12.5s - INFO - __main__ - task: woz.en, epoch: 7
+2023-04-29 08:05:10,029 - 15:12:02 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 08:05:11,318 - 15:12:04 - 1.3s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 08:05:13,409 - 15:12:06 - 2.1s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 08:05:14,833 - 15:12:07 - 1.4s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 08:37:06,385 - 15:43:59 - 1911.6s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 08:37:07,532 - 15:44:00 - 1.1s - INFO - __main__ - len of test dataset: 1646
+2023-04-29 08:45:43,634 - 15:52:36 - 516.1s - INFO - __main__ - score: {'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 1.1382520904897522), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 6.925880923450791), ('nf1', 72.66286383388439), ('nem', 49.27095990279465), ('joint_goal_em', 14.88456865127582), ('turn_request_em', 69.50182260024302), ('turn_goal_em', 62.21142162818955), ('avg_dialogue', 42.193195625759415)])}
+ 58%|█████▊    | 7/12 [7:07:16<4:08:30, 2982.11s/it]2023-04-29 08:45:55,673 - 15:52:48 - 12.0s - INFO - __main__ - task: woz.en, epoch: 8
+2023-04-29 08:45:55,674 - 15:52:48 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-04-29 08:45:56,964 - 15:52:49 - 1.3s - INFO - __main__ - len of test dataset: 1821
+2023-04-29 08:45:59,123 - 15:52:52 - 2.2s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-04-29 08:46:00,542 - 15:52:53 - 1.4s - INFO - __main__ - len of test dataset: 2201
+2023-04-29 09:17:40,009 - 16:24:32 - 1899.5s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-04-29 09:17:41,346 - 16:24:34 - 1.3s - INFO - __main__ - len of test dataset: 1646

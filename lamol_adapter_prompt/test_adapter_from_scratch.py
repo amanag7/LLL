@@ -11,6 +11,7 @@ from settings import MEMORY_FACTOR, LEN_FACTOR, TASK_DICT, MODEL_CONFIG, DATA_AT
 from utils import QADataset, top_k_top_p_filtering, create_dataloader, logits_to_tokens, get_model_dir
 from utils import sample_sequence, remove_id, get_gen_token, lll_unbound_setting
 from metrics import compute_metrics
+from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
@@ -106,7 +107,7 @@ def get_test_score(task_eval,qa_results,score_dict):
 def test_one_to_many(task_load):
     score_dicts = []
     test_run = True
-    for ep in range(args.n_train_epochs[task_load]):
+    for ep in tqdm(range(args.n_train_epochs[task_load])):
 #         import pdb;pdb.set_trace();
         model_dir = get_model_dir([task_load])
         model_path = os.path.join(model_dir, 'model-1')
