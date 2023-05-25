@@ -121,7 +121,8 @@ def test_one_to_many(task_load):
         model = MODEL_CLASS(model_config).cuda().eval()
         state_dict = torch.load(model_path, map_location='cuda:0')
         ### Addition starts here
-        adapter_name = args.tasks[0]   ##Change
+        # adapter_name = args.tasks[0]   ##Change
+        adapter_name = task_load.replace(".","_")
         model.load_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)))
         model.load_state_dict(state_dict)
         model.set_active_adapters(adapter_name)

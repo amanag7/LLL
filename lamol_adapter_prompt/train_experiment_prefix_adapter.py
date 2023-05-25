@@ -29,16 +29,16 @@ def train(task_ids, model):
     make_dir(model_dir)
 
     adapter_config = ConfigUnion(
-                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=6, non_linearity="relu"),
+                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=16, non_linearity="relu", init_weights="mam_adapter"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=160, bottleneck_size=32)
+                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=20, bottleneck_size=800)
                         )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();
         model = MODEL_CLASS.from_pretrained(args.model_name).cuda()
         model.resize_token_embeddings(len(TOKENIZER))
-        adapter_name = args.tasks[0].replace(".", "_")
+        adapter_name = args.tasks[task_ids[0]].replace(".", "_")
         
 #         adapter_config =  ConfigUnion(PrefixTuningConfig(bottleneck_size=800), ParallelConfig(),)
         model.add_adapter(adapter_name, config=adapter_config)
@@ -147,9 +147,10 @@ def train(task_ids, model):
     if task_ids[0]==0:
         # Adding Adapter Modules
 #         adapter_config =  ConfigUnion(PrefixTuningConfig(bottleneck_size=800), ParallelConfig(),)
-        model.add_adapter(tasks[0], config=adapter_config)
-        model.set_active_adapters(tasks[0])
-        model.train_adapter(tasks[0])
+        adapter_name = args.tasks[task_ids[0]]
+        model.add_adapter(adapter_name, config=adapter_config)
+        model.set_active_adapters(adapter_name)
+        model.train_adapter(adapter_name)
         model = model.to(args.device_ids[0])
 #     else:
 #         prev_task_adapter = args.tasks[task_ids[0]-1]
@@ -249,11 +250,11 @@ def train(task_ids, model):
         regularizer.task_end_do()
     torch.save(model.state_dict(), os.path.join(model_dir, FINAL_SAVE_NAME))
     print(f"The current active adapter is {model.active_adapters}")
-    if task_ids[0]-1 >= 0:
-#         adapter_name = args.tasks[task_ids[0]].replace(".", "_")   ##Change
-        adapter_name = args.tasks[0].replace(".", "_")
-    else:
-        adapter_name = args.tasks[0].replace(".", "_")
+    # if task_ids[0]-1 >= 0:
+    adapter_name = args.tasks[task_ids[0]].replace(".", "_")   ##Change
+    #     adapter_name = args.tasks[0].replace(".", "_")
+    # else:
+    #     adapter_name = args.tasks[0].replace(".", "_")
     print(f"The task with which model is saved {adapter_name}")
     model.save_adapter(os.path.abspath(os.path.join(model_dir, FINAL_SAVE_NAME + "_adapter")), adapter_name)
     return model
