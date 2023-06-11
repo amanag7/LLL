@@ -107,39 +107,41 @@ def get_test_score(task_eval,qa_results,score_dict):
 def test_one_to_many(task_load):
     score_dicts = []
     test_run = True
-    for ep in tqdm(range(args.n_train_epochs[task_load])):
+    # for ep in tqdm(range(args.n_train_epochs[task_load])):
 #         import pdb;pdb.set_trace();
-        model_dir = get_model_dir([task_load])
-        model_path = os.path.join(model_dir, 'model-1')
-        config_path = os.path.join(model_dir,CONFIG_NAME)
+    ep = args.n_train_epochs[task_load] - 1
+    model_dir = get_model_dir([task_load])
+    model_path = os.path.join(model_dir, 'model-1')
+    config_path = os.path.join(model_dir,CONFIG_NAME)
 
-        gen_token = get_gen_token(task_load)
-        TOKENIZER.add_tokens([gen_token])
-        SPECIAL_TOKENS[task_load] = gen_token
-        SPECIAL_TOKEN_IDS[task_load] = TOKENIZER.convert_tokens_to_ids(gen_token)
-        model_config = CONFIG_CLASS.from_json_file(config_path) 
-        model = MODEL_CLASS(model_config).cuda().eval()
-        state_dict = torch.load(model_path, map_location='cuda:0')
-        ### Addition starts here
-        # adapter_name = args.tasks[0]   ##Change
-        adapter_name = task_load.replace(".","_")
-        model.load_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)))
-        model.load_state_dict(state_dict)
-        model.set_active_adapters(adapter_name)
-        model = model.cuda()
-        ## Additione ends here
-        if not args.fp32:
-            model = FP16_Module(model)
+    gen_token = get_gen_token(task_load)
+    TOKENIZER.add_tokens([gen_token])
+    SPECIAL_TOKENS[task_load] = gen_token
+    SPECIAL_TOKEN_IDS[task_load] = TOKENIZER.convert_tokens_to_ids(gen_token)
+    model_config = CONFIG_CLASS.from_json_file(config_path) 
+    model = MODEL_CLASS(model_config).cuda().eval()
+    state_dict = torch.load(model_path, map_location='cuda:0')
+    ### Addition starts here
+    # adapter_name = args.tasks[0]   ##Change
+    adapter_name = task_load.replace(".","_")
+    model.load_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)))
+    model.load_state_dict(state_dict)
+    model.set_active_adapters(adapter_name)
+    model = model.cuda()
+    ## Additione ends here
+    if not args.fp32:
+        model = FP16_Module(model)
 
-        model.ep = ep
-        model.model_dir = model_dir
-        logger.info("task: {}, epoch: {}".format(task_load, ep+1))
-        score_dict = {k:None for k in args.tasks}
-        with torch.no_grad():
-            for task_eval in args.tasks:
-                test_one_to_one(task_load, task_eval, model, score_dict,test_run)
-        logger.info("score: {}".format(score_dict))
-        score_dicts.append(score_dict)
+    model.ep = ep
+    model.model_dir = model_dir
+    logger.info("task: {}, epoch: {}".format(task_load, ep+1))
+    score_dict = {k:None for k in args.tasks}
+    with torch.no_grad():
+        for task_eval in args.tasks:
+            test_one_to_one(task_load, task_eval, model, score_dict,test_run)
+    logger.info("score: {}".format(score_dict))
+    score_dicts.append(score_dict)
+    # loop end
 
     with open(os.path.join(model_dir, "metrics.json"),"w") as f:
         json.dump(score_dicts, f)

@@ -1,0 +1,292 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-06-08 16:07:53,662 - 0:00:26 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[4, 5, 6], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[37294.04, 42158.48, 42158.48], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_cm2/gpt2/lll/sst_srl_zre_woz.en_0.0', model_name='gpt2', n_gpus=3, n_train_epochs={'sst': 20, 'srl': 20, 'zre': 20, 'woz.en': 20}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'zre', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[13052, 14755, 14755], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[13052, 14755, 14755], unbound=0, use_sep=False, weight_decay=0.01)
+2023-06-08 16:07:53,662 - 0:00:26 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-06-08 16:07:53,662 - 0:00:26 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-08 16:08:15,915 - 0:00:48 - 22.3s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-08 16:08:17,786 - 0:00:50 - 1.9s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 138400
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/parallel/_functions.py:68: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+2023-06-08 16:10:07,872 - 0:02:40 - 110.1s - INFO - __main__ - progress 0.578 , lr 6.1E-05 , loss 1.306 , qa loss 1.306 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:11:32,308 - 0:04:05 - 84.4s - INFO - __main__ - epoch 1/20 done , tot steps 1730 , lr 5.9E-05 , loss 0.88 , qa loss 0.88 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:13:20,898 - 0:05:53 - 108.6s - INFO - __main__ - progress 1.578 , lr 5.8E-05 , loss 0.266 , qa loss 0.266 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:14:39,615 - 0:07:12 - 78.7s - INFO - __main__ - epoch 2/20 done , tot steps 3460 , lr 5.6E-05 , loss 0.25 , qa loss 0.25 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:16:25,794 - 0:08:58 - 106.2s - INFO - __main__ - progress 2.578 , lr 5.4E-05 , loss 0.211 , qa loss 0.211 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:17:43,133 - 0:10:16 - 77.3s - INFO - __main__ - epoch 3/20 done , tot steps 5190 , lr 5.3E-05 , loss 0.21 , qa loss 0.21 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:19:30,382 - 0:12:03 - 107.2s - INFO - __main__ - progress 3.578 , lr 5.1E-05 , loss 0.174 , qa loss 0.174 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:20:48,374 - 0:13:21 - 78.0s - INFO - __main__ - epoch 4/20 done , tot steps 6920 , lr 5.0E-05 , loss 0.17 , qa loss 0.17 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:22:34,841 - 0:15:07 - 106.5s - INFO - __main__ - progress 4.578 , lr 4.8E-05 , loss 0.155 , qa loss 0.155 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:23:53,927 - 0:16:26 - 79.1s - INFO - __main__ - epoch 5/20 done , tot steps 8650 , lr 4.7E-05 , loss 0.15 , qa loss 0.15 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:25:39,459 - 0:18:12 - 105.5s - INFO - __main__ - progress 5.578 , lr 4.5E-05 , loss 0.125 , qa loss 0.125 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:26:57,324 - 0:19:30 - 77.9s - INFO - __main__ - epoch 6/20 done , tot steps 10380 , lr 4.4E-05 , loss 0.13 , qa loss 0.13 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:28:44,363 - 0:21:17 - 107.0s - INFO - __main__ - progress 6.578 , lr 4.2E-05 , loss 0.106 , qa loss 0.106 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:30:03,193 - 0:22:36 - 78.8s - INFO - __main__ - epoch 7/20 done , tot steps 12110 , lr 4.1E-05 , loss 0.11 , qa loss 0.11 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:31:50,287 - 0:24:23 - 107.1s - INFO - __main__ - progress 7.578 , lr 3.9E-05 , loss 0.093 , qa loss 0.093 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:33:07,589 - 0:25:40 - 77.3s - INFO - __main__ - epoch 8/20 done , tot steps 13840 , lr 3.8E-05 , loss 0.09 , qa loss 0.09 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:34:54,649 - 0:27:27 - 107.1s - INFO - __main__ - progress 8.578 , lr 3.6E-05 , loss 0.071 , qa loss 0.071 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:36:12,036 - 0:28:44 - 77.4s - INFO - __main__ - epoch 9/20 done , tot steps 15570 , lr 3.4E-05 , loss 0.08 , qa loss 0.08 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:37:58,702 - 0:30:31 - 106.7s - INFO - __main__ - progress 9.578 , lr 3.3E-05 , loss 0.050 , qa loss 0.050 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:39:16,853 - 0:31:49 - 78.2s - INFO - __main__ - epoch 10/20 done , tot steps 17300 , lr 3.1E-05 , loss 0.06 , qa loss 0.06 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:41:03,366 - 0:33:36 - 106.5s - INFO - __main__ - progress 10.578 , lr 2.9E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:42:20,931 - 0:34:53 - 77.6s - INFO - __main__ - epoch 11/20 done , tot steps 19030 , lr 2.8E-05 , loss 0.04 , qa loss 0.04 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:44:06,859 - 0:36:39 - 105.9s - INFO - __main__ - progress 11.578 , lr 2.6E-05 , loss 0.043 , qa loss 0.043 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:45:25,228 - 0:37:58 - 78.4s - INFO - __main__ - epoch 12/20 done , tot steps 20760 , lr 2.5E-05 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:47:11,664 - 0:39:44 - 106.4s - INFO - __main__ - progress 12.578 , lr 2.3E-05 , loss 0.028 , qa loss 0.028 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:48:28,725 - 0:41:01 - 77.1s - INFO - __main__ - epoch 13/20 done , tot steps 22490 , lr 2.2E-05 , loss 0.03 , qa loss 0.03 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:50:14,047 - 0:42:46 - 105.3s - INFO - __main__ - progress 13.578 , lr 2.0E-05 , loss 0.025 , qa loss 0.025 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:51:32,099 - 0:44:05 - 78.1s - INFO - __main__ - epoch 14/20 done , tot steps 24220 , lr 1.9E-05 , loss 0.03 , qa loss 0.03 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:53:18,266 - 0:45:51 - 106.2s - INFO - __main__ - progress 14.578 , lr 1.7E-05 , loss 0.025 , qa loss 0.025 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:54:35,938 - 0:47:08 - 77.7s - INFO - __main__ - epoch 15/20 done , tot steps 25950 , lr 1.6E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:56:21,035 - 0:48:53 - 105.1s - INFO - __main__ - progress 15.578 , lr 1.4E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 16:57:39,678 - 0:50:12 - 78.6s - INFO - __main__ - epoch 16/20 done , tot steps 27680 , lr 1.3E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 16:59:25,783 - 0:51:58 - 106.1s - INFO - __main__ - progress 16.578 , lr 1.1E-05 , loss 0.014 , qa loss 0.014 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:00:44,715 - 0:53:17 - 78.9s - INFO - __main__ - epoch 17/20 done , tot steps 29410 , lr 9.4E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:02:30,378 - 0:55:03 - 105.7s - INFO - __main__ - progress 17.578 , lr 7.6E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:03:47,706 - 0:56:20 - 77.3s - INFO - __main__ - epoch 18/20 done , tot steps 31140 , lr 6.3E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:05:34,544 - 0:58:07 - 106.8s - INFO - __main__ - progress 18.578 , lr 4.5E-06 , loss 0.008 , qa loss 0.008 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:06:52,985 - 0:59:25 - 78.4s - INFO - __main__ - epoch 19/20 done , tot steps 32870 , lr 3.1E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:08:38,738 - 1:01:11 - 105.8s - INFO - __main__ - progress 19.578 , lr 1.3E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:09:56,979 - 1:02:29 - 78.2s - INFO - __main__ - epoch 20/20 done , tot steps 34600 , lr 1.5E-08 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:10:05,020 - 1:02:37 - 8.0s - INFO - __main__ - start to train { task: ['srl'], seq train type: lll }
+2023-06-08 17:10:27,743 - 1:03:00 - 22.7s - INFO - utils - writing extra data in ../../model_cm2/gpt2/lll/sst_srl_zre_woz.en_0.0/sst/lm.csv ...
+2023-06-08 17:10:27,744 - 1:03:00 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-08 17:10:27,897 - 1:03:00 - 0.2s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+The current active adapter is Stack[sst]
+The task with which model is saved sst
+2023-06-08 17:10:29,957 - 1:03:02 - 2.1s - INFO - __main__ - len of train dataset: 6414 , max train batch size 4 , num of opt steps: 128280
+2023-06-08 17:13:16,003 - 1:05:48 - 166.0s - INFO - __main__ - progress 0.624 , lr 6.1E-05 , loss 2.365 , qa loss 2.365 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:15:03,777 - 1:07:36 - 107.8s - INFO - __main__ - epoch 1/20 done , tot steps 1604 , lr 5.9E-05 , loss 1.81 , qa loss 1.81 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:17:50,861 - 1:10:23 - 167.1s - INFO - __main__ - progress 1.624 , lr 5.7E-05 , loss 0.734 , qa loss 0.734 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:19:33,580 - 1:12:06 - 102.7s - INFO - __main__ - epoch 2/20 done , tot steps 3208 , lr 5.6E-05 , loss 0.72 , qa loss 0.72 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:22:22,419 - 1:14:55 - 168.8s - INFO - __main__ - progress 2.624 , lr 5.4E-05 , loss 0.572 , qa loss 0.572 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:24:05,393 - 1:16:38 - 103.0s - INFO - __main__ - epoch 3/20 done , tot steps 4812 , lr 5.3E-05 , loss 0.57 , qa loss 0.57 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:26:57,860 - 1:19:30 - 172.5s - INFO - __main__ - progress 3.624 , lr 5.1E-05 , loss 0.477 , qa loss 0.477 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:28:37,360 - 1:21:10 - 99.5s - INFO - __main__ - epoch 4/20 done , tot steps 6416 , lr 5.0E-05 , loss 0.46 , qa loss 0.46 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:31:23,546 - 1:23:56 - 166.2s - INFO - __main__ - progress 4.624 , lr 4.8E-05 , loss 0.369 , qa loss 0.369 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:33:07,760 - 1:25:40 - 104.2s - INFO - __main__ - epoch 5/20 done , tot steps 8020 , lr 4.7E-05 , loss 0.37 , qa loss 0.37 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:35:58,939 - 1:28:31 - 171.2s - INFO - __main__ - progress 5.624 , lr 4.5E-05 , loss 0.314 , qa loss 0.314 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:37:42,525 - 1:30:15 - 103.6s - INFO - __main__ - epoch 6/20 done , tot steps 9624 , lr 4.4E-05 , loss 0.31 , qa loss 0.31 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:40:29,487 - 1:33:02 - 167.0s - INFO - __main__ - progress 6.624 , lr 4.2E-05 , loss 0.259 , qa loss 0.259 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:42:13,594 - 1:34:46 - 104.1s - INFO - __main__ - epoch 7/20 done , tot steps 11228 , lr 4.1E-05 , loss 0.27 , qa loss 0.27 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:44:59,075 - 1:37:31 - 165.5s - INFO - __main__ - progress 7.624 , lr 3.9E-05 , loss 0.226 , qa loss 0.226 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:46:41,550 - 1:39:14 - 102.5s - INFO - __main__ - epoch 8/20 done , tot steps 12832 , lr 3.8E-05 , loss 0.23 , qa loss 0.23 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:49:36,247 - 1:42:09 - 174.7s - INFO - __main__ - progress 8.624 , lr 3.6E-05 , loss 0.197 , qa loss 0.197 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:51:12,568 - 1:43:45 - 96.3s - INFO - __main__ - epoch 9/20 done , tot steps 14436 , lr 3.4E-05 , loss 0.20 , qa loss 0.20 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:53:57,195 - 1:46:30 - 164.6s - INFO - __main__ - progress 9.624 , lr 3.2E-05 , loss 0.163 , qa loss 0.163 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 17:55:41,383 - 1:48:14 - 104.2s - INFO - __main__ - epoch 10/20 done , tot steps 16040 , lr 3.1E-05 , loss 0.17 , qa loss 0.17 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 17:58:29,785 - 1:51:02 - 168.4s - INFO - __main__ - progress 10.624 , lr 2.9E-05 , loss 0.148 , qa loss 0.148 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:00:14,360 - 1:52:47 - 104.6s - INFO - __main__ - epoch 11/20 done , tot steps 17644 , lr 2.8E-05 , loss 0.16 , qa loss 0.16 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:03:01,430 - 1:55:34 - 167.1s - INFO - __main__ - progress 11.624 , lr 2.6E-05 , loss 0.126 , qa loss 0.126 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:04:45,505 - 1:57:18 - 104.1s - INFO - __main__ - epoch 12/20 done , tot steps 19248 , lr 2.5E-05 , loss 0.13 , qa loss 0.13 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:07:32,099 - 2:00:05 - 166.6s - INFO - __main__ - progress 12.624 , lr 2.3E-05 , loss 0.118 , qa loss 0.118 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:09:13,839 - 2:01:46 - 101.7s - INFO - __main__ - epoch 13/20 done , tot steps 20852 , lr 2.2E-05 , loss 0.12 , qa loss 0.12 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:11:59,054 - 2:04:31 - 165.2s - INFO - __main__ - progress 13.624 , lr 2.0E-05 , loss 0.096 , qa loss 0.096 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:13:43,286 - 2:06:16 - 104.2s - INFO - __main__ - epoch 14/20 done , tot steps 22456 , lr 1.9E-05 , loss 0.10 , qa loss 0.10 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:16:33,968 - 2:09:06 - 170.7s - INFO - __main__ - progress 14.624 , lr 1.7E-05 , loss 0.081 , qa loss 0.081 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:18:14,297 - 2:10:47 - 100.3s - INFO - __main__ - epoch 15/20 done , tot steps 24060 , lr 1.6E-05 , loss 0.09 , qa loss 0.09 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:21:04,594 - 2:13:37 - 170.3s - INFO - __main__ - progress 15.624 , lr 1.4E-05 , loss 0.074 , qa loss 0.074 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:22:47,173 - 2:15:20 - 102.6s - INFO - __main__ - epoch 16/20 done , tot steps 25664 , lr 1.3E-05 , loss 0.07 , qa loss 0.07 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:25:38,127 - 2:18:11 - 171.0s - INFO - __main__ - progress 16.624 , lr 1.1E-05 , loss 0.066 , qa loss 0.066 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:27:18,574 - 2:19:51 - 100.4s - INFO - __main__ - epoch 17/20 done , tot steps 27268 , lr 9.4E-06 , loss 0.07 , qa loss 0.07 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:30:07,420 - 2:22:40 - 168.8s - INFO - __main__ - progress 17.624 , lr 7.4E-06 , loss 0.066 , qa loss 0.066 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:31:49,911 - 2:24:22 - 102.5s - INFO - __main__ - epoch 18/20 done , tot steps 28872 , lr 6.3E-06 , loss 0.06 , qa loss 0.06 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:34:35,150 - 2:27:08 - 165.2s - INFO - __main__ - progress 18.624 , lr 4.3E-06 , loss 0.053 , qa loss 0.053 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:36:21,744 - 2:28:54 - 106.6s - INFO - __main__ - epoch 19/20 done , tot steps 30476 , lr 3.1E-06 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:39:11,324 - 2:31:44 - 169.6s - INFO - __main__ - progress 19.624 , lr 1.2E-06 , loss 0.051 , qa loss 0.051 , lm loss 0.000 , avg batch size 4.0
+2023-06-08 18:40:51,889 - 2:33:24 - 100.6s - INFO - __main__ - epoch 20/20 done , tot steps 32080 , lr 1.6E-08 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 4.0
+2023-06-08 18:40:59,881 - 2:33:32 - 8.0s - INFO - __main__ - start to train { task: ['zre'], seq train type: lll }
+2023-06-08 18:41:22,481 - 2:33:55 - 22.6s - INFO - utils - writing extra data in ../../model_cm2/gpt2/lll/sst_srl_zre_woz.en_0.0/srl/lm.csv ...
+2023-06-08 18:41:22,482 - 2:33:55 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-08 18:41:22,669 - 2:33:55 - 0.2s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+The current active adapter is Stack[srl]
+The task with which model is saved srl
+2023-06-08 18:41:56,040 - 2:34:28 - 33.4s - INFO - __main__ - len of train dataset: 840000 , max train batch size 560 , num of opt steps: 16800000
+2023-06-08 18:57:11,739 - 2:49:44 - 915.7s - INFO - __main__ - progress 0.143 , lr 6.2E-05 , loss 1.649 , qa loss 1.649 , lm loss 0.000 , avg batch size 119.8
+2023-06-08 19:11:59,562 - 3:04:32 - 887.8s - INFO - __main__ - progress 0.285 , lr 6.2E-05 , loss 0.990 , qa loss 0.990 , lm loss 0.000 , avg batch size 119.7
+2023-06-08 19:26:49,083 - 3:19:22 - 889.5s - INFO - __main__ - progress 0.427 , lr 6.1E-05 , loss 0.747 , qa loss 0.747 , lm loss 0.000 , avg batch size 119.6
+2023-06-08 19:41:36,227 - 3:34:09 - 887.1s - INFO - __main__ - progress 0.570 , lr 6.1E-05 , loss 0.616 , qa loss 0.616 , lm loss 0.000 , avg batch size 119.7
+2023-06-08 19:56:26,877 - 3:48:59 - 890.6s - INFO - __main__ - progress 0.712 , lr 6.0E-05 , loss 0.533 , qa loss 0.533 , lm loss 0.000 , avg batch size 119.7
+2023-06-08 20:11:15,035 - 4:03:47 - 888.2s - INFO - __main__ - progress 0.855 , lr 6.0E-05 , loss 0.474 , qa loss 0.474 , lm loss 0.000 , avg batch size 119.8
+2023-06-08 20:26:05,405 - 4:18:38 - 890.4s - INFO - __main__ - progress 0.999 , lr 5.9E-05 , loss 0.429 , qa loss 0.429 , lm loss 0.000 , avg batch size 119.9
+2023-06-08 20:26:21,173 - 4:18:54 - 15.8s - INFO - __main__ - epoch 1/20 done , tot steps 7008 , lr 5.9E-05 , loss 0.43 , qa loss 0.43 , lm loss 0.00 , avg batch size 119.9
+2023-06-08 20:41:18,386 - 4:33:51 - 897.2s - INFO - __main__ - progress 1.144 , lr 5.9E-05 , loss 0.146 , qa loss 0.146 , lm loss 0.000 , avg batch size 120.8
+2023-06-08 20:56:08,509 - 4:48:41 - 890.1s - INFO - __main__ - progress 1.286 , lr 5.8E-05 , loss 0.142 , qa loss 0.142 , lm loss 0.000 , avg batch size 120.2
+2023-06-08 21:10:55,687 - 5:03:28 - 887.2s - INFO - __main__ - progress 1.429 , lr 5.8E-05 , loss 0.139 , qa loss 0.139 , lm loss 0.000 , avg batch size 120.0
+2023-06-08 21:25:44,746 - 5:18:17 - 889.1s - INFO - __main__ - progress 1.571 , lr 5.8E-05 , loss 0.135 , qa loss 0.135 , lm loss 0.000 , avg batch size 120.0
+2023-06-08 21:40:34,009 - 5:33:06 - 889.3s - INFO - __main__ - progress 1.715 , lr 5.7E-05 , loss 0.132 , qa loss 0.132 , lm loss 0.000 , avg batch size 120.1
+2023-06-08 21:55:23,529 - 5:47:56 - 889.5s - INFO - __main__ - progress 1.857 , lr 5.7E-05 , loss 0.129 , qa loss 0.129 , lm loss 0.000 , avg batch size 119.9
+2023-06-08 22:10:12,977 - 6:02:45 - 889.4s - INFO - __main__ - progress 2.000 , lr 5.6E-05 , loss 0.126 , qa loss 0.126 , lm loss 0.000 , avg batch size 120.0
+2023-06-08 22:10:18,336 - 6:02:51 - 5.4s - INFO - __main__ - epoch 2/20 done , tot steps 14010 , lr 5.6E-05 , loss 0.13 , qa loss 0.13 , lm loss 0.00 , avg batch size 120.0
+2023-06-08 22:25:20,433 - 6:17:53 - 902.1s - INFO - __main__ - progress 2.143 , lr 5.6E-05 , loss 0.099 , qa loss 0.099 , lm loss 0.000 , avg batch size 119.8
+2023-06-08 22:40:10,243 - 6:32:43 - 889.8s - INFO - __main__ - progress 2.285 , lr 5.5E-05 , loss 0.096 , qa loss 0.096 , lm loss 0.000 , avg batch size 119.7
+2023-06-08 22:55:03,111 - 6:47:36 - 892.9s - INFO - __main__ - progress 2.428 , lr 5.5E-05 , loss 0.095 , qa loss 0.095 , lm loss 0.000 , avg batch size 119.9
+2023-06-08 23:09:54,131 - 7:02:27 - 891.0s - INFO - __main__ - progress 2.571 , lr 5.4E-05 , loss 0.093 , qa loss 0.093 , lm loss 0.000 , avg batch size 120.0
+2023-06-08 23:24:47,487 - 7:17:20 - 893.4s - INFO - __main__ - progress 2.716 , lr 5.4E-05 , loss 0.092 , qa loss 0.092 , lm loss 0.000 , avg batch size 120.2
+2023-06-08 23:39:37,683 - 7:32:10 - 890.2s - INFO - __main__ - progress 2.858 , lr 5.4E-05 , loss 0.090 , qa loss 0.090 , lm loss 0.000 , avg batch size 120.2
+2023-06-08 23:54:25,250 - 7:46:58 - 887.6s - INFO - __main__ - epoch 3/20 done , tot steps 21002 , lr 5.3E-05 , loss 0.09 , qa loss 0.09 , lm loss 0.00 , avg batch size 120.1
+2023-06-09 00:09:25,372 - 8:01:58 - 900.1s - INFO - __main__ - progress 3.142 , lr 5.3E-05 , loss 0.073 , qa loss 0.073 , lm loss 0.000 , avg batch size 119.4
+2023-06-09 00:24:17,153 - 8:16:50 - 891.8s - INFO - __main__ - progress 3.286 , lr 5.2E-05 , loss 0.073 , qa loss 0.073 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 00:39:06,489 - 8:31:39 - 889.3s - INFO - __main__ - progress 3.428 , lr 5.2E-05 , loss 0.072 , qa loss 0.072 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 00:53:55,303 - 8:46:28 - 888.8s - INFO - __main__ - progress 3.571 , lr 5.1E-05 , loss 0.071 , qa loss 0.071 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 01:08:42,558 - 9:01:15 - 887.3s - INFO - __main__ - progress 3.715 , lr 5.1E-05 , loss 0.070 , qa loss 0.070 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 01:23:32,859 - 9:16:05 - 890.3s - INFO - __main__ - progress 3.857 , lr 5.0E-05 , loss 0.070 , qa loss 0.070 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 01:38:25,669 - 9:30:58 - 892.8s - INFO - __main__ - epoch 4/20 done , tot steps 28001 , lr 5.0E-05 , loss 0.07 , qa loss 0.07 , lm loss 0.00 , avg batch size 120.0
+2023-06-09 01:53:27,403 - 9:46:00 - 901.7s - INFO - __main__ - progress 4.141 , lr 5.0E-05 , loss 0.058 , qa loss 0.058 , lm loss 0.000 , avg batch size 118.8
+2023-06-09 02:08:16,647 - 10:00:49 - 889.2s - INFO - __main__ - progress 4.284 , lr 4.9E-05 , loss 0.058 , qa loss 0.058 , lm loss 0.000 , avg batch size 119.5
+2023-06-09 02:23:08,388 - 10:15:41 - 891.7s - INFO - __main__ - progress 4.428 , lr 4.9E-05 , loss 0.057 , qa loss 0.057 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 02:37:58,545 - 10:30:31 - 890.2s - INFO - __main__ - progress 4.571 , lr 4.8E-05 , loss 0.057 , qa loss 0.057 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 02:52:51,558 - 10:45:24 - 893.0s - INFO - __main__ - progress 4.715 , lr 4.8E-05 , loss 0.056 , qa loss 0.056 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 03:07:42,295 - 11:00:15 - 890.7s - INFO - __main__ - progress 4.858 , lr 4.7E-05 , loss 0.056 , qa loss 0.056 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 03:22:32,977 - 11:15:05 - 890.7s - INFO - __main__ - progress 4.999 , lr 4.7E-05 , loss 0.056 , qa loss 0.056 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 03:22:42,107 - 11:15:15 - 9.1s - INFO - __main__ - epoch 5/20 done , tot steps 35007 , lr 4.7E-05 , loss 0.06 , qa loss 0.06 , lm loss 0.00 , avg batch size 119.9
+2023-06-09 03:37:45,772 - 11:30:18 - 903.7s - INFO - __main__ - progress 5.142 , lr 4.6E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.3
+2023-06-09 03:52:36,856 - 11:45:09 - 891.1s - INFO - __main__ - progress 5.284 , lr 4.6E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.4
+2023-06-09 04:07:24,980 - 11:59:57 - 888.1s - INFO - __main__ - progress 5.427 , lr 4.6E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.4
+2023-06-09 04:22:17,146 - 12:14:50 - 892.2s - INFO - __main__ - progress 5.569 , lr 4.5E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.5
+2023-06-09 04:37:06,408 - 12:29:39 - 889.3s - INFO - __main__ - progress 5.712 , lr 4.5E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 04:51:58,565 - 12:44:31 - 892.2s - INFO - __main__ - progress 5.856 , lr 4.4E-05 , loss 0.047 , qa loss 0.047 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 05:06:46,012 - 12:59:18 - 887.4s - INFO - __main__ - progress 5.998 , lr 4.4E-05 , loss 0.046 , qa loss 0.046 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 05:07:01,345 - 12:59:34 - 15.3s - INFO - __main__ - epoch 6/20 done , tot steps 42020 , lr 4.4E-05 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 119.8
+2023-06-09 05:22:04,179 - 13:14:37 - 902.8s - INFO - __main__ - progress 6.142 , lr 4.3E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.5
+2023-06-09 05:36:52,626 - 13:29:25 - 888.4s - INFO - __main__ - progress 6.283 , lr 4.3E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 118.8
+2023-06-09 05:51:44,280 - 13:44:17 - 891.7s - INFO - __main__ - progress 6.425 , lr 4.2E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.1
+2023-06-09 06:06:33,047 - 13:59:05 - 888.8s - INFO - __main__ - progress 6.569 , lr 4.2E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.5
+2023-06-09 06:21:24,580 - 14:13:57 - 891.5s - INFO - __main__ - progress 6.712 , lr 4.2E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 06:36:13,348 - 14:28:46 - 888.8s - INFO - __main__ - progress 6.854 , lr 4.1E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 06:51:02,392 - 14:43:35 - 889.0s - INFO - __main__ - progress 6.997 , lr 4.1E-05 , loss 0.040 , qa loss 0.040 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 06:51:24,285 - 14:43:57 - 21.9s - INFO - __main__ - epoch 7/20 done , tot steps 49041 , lr 4.1E-05 , loss 0.04 , qa loss 0.04 , lm loss 0.00 , avg batch size 119.6
+2023-06-09 07:06:21,049 - 14:58:53 - 896.8s - INFO - __main__ - progress 7.144 , lr 4.0E-05 , loss 0.033 , qa loss 0.033 , lm loss 0.000 , avg batch size 120.5
+2023-06-09 07:21:10,273 - 15:13:43 - 889.2s - INFO - __main__ - progress 7.285 , lr 4.0E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 07:35:57,309 - 15:28:30 - 887.0s - INFO - __main__ - progress 7.427 , lr 3.9E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 07:50:47,282 - 15:43:20 - 890.0s - INFO - __main__ - progress 7.570 , lr 3.9E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 08:05:34,726 - 15:58:07 - 887.4s - INFO - __main__ - progress 7.714 , lr 3.8E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 08:20:23,748 - 16:12:56 - 889.0s - INFO - __main__ - progress 7.854 , lr 3.8E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 08:35:12,929 - 16:27:45 - 889.2s - INFO - __main__ - progress 7.999 , lr 3.8E-05 , loss 0.034 , qa loss 0.034 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 08:35:24,611 - 16:27:57 - 11.7s - INFO - __main__ - epoch 8/20 done , tot steps 56047 , lr 3.8E-05 , loss 0.03 , qa loss 0.03 , lm loss 0.00 , avg batch size 119.9
+2023-06-09 08:50:23,313 - 16:42:56 - 898.7s - INFO - __main__ - progress 8.141 , lr 3.7E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 118.8
+2023-06-09 09:05:11,570 - 16:57:44 - 888.3s - INFO - __main__ - progress 8.285 , lr 3.7E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 09:20:02,927 - 17:12:35 - 891.4s - INFO - __main__ - progress 8.428 , lr 3.6E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 09:34:52,999 - 17:27:25 - 890.1s - INFO - __main__ - progress 8.570 , lr 3.6E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 09:49:43,781 - 17:42:16 - 890.8s - INFO - __main__ - progress 8.713 , lr 3.5E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 10:04:34,069 - 17:57:06 - 890.3s - INFO - __main__ - progress 8.856 , lr 3.5E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 10:19:25,574 - 18:11:58 - 891.5s - INFO - __main__ - progress 8.998 , lr 3.4E-05 , loss 0.030 , qa loss 0.030 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 10:19:41,741 - 18:12:14 - 16.2s - INFO - __main__ - epoch 9/20 done , tot steps 63061 , lr 3.4E-05 , loss 0.03 , qa loss 0.03 , lm loss 0.00 , avg batch size 119.8
+2023-06-09 10:34:39,738 - 18:27:12 - 898.0s - INFO - __main__ - progress 9.141 , lr 3.4E-05 , loss 0.027 , qa loss 0.027 , lm loss 0.000 , avg batch size 118.3
+2023-06-09 10:49:30,350 - 18:42:03 - 890.6s - INFO - __main__ - progress 9.285 , lr 3.4E-05 , loss 0.026 , qa loss 0.026 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 11:04:18,960 - 18:56:51 - 888.6s - INFO - __main__ - progress 9.429 , lr 3.3E-05 , loss 0.026 , qa loss 0.026 , lm loss 0.000 , avg batch size 120.2
+2023-06-09 11:19:09,291 - 19:11:42 - 890.3s - INFO - __main__ - progress 9.572 , lr 3.3E-05 , loss 0.026 , qa loss 0.026 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 11:33:57,671 - 19:26:30 - 888.4s - INFO - __main__ - progress 9.715 , lr 3.2E-05 , loss 0.026 , qa loss 0.026 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 11:48:47,565 - 19:41:20 - 889.9s - INFO - __main__ - progress 9.858 , lr 3.2E-05 , loss 0.027 , qa loss 0.027 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 12:03:37,420 - 19:56:10 - 889.9s - INFO - __main__ - epoch 10/20 done , tot steps 70059 , lr 3.1E-05 , loss 0.03 , qa loss 0.03 , lm loss 0.00 , avg batch size 120.0
+2023-06-09 12:18:38,527 - 20:11:11 - 901.1s - INFO - __main__ - progress 10.143 , lr 3.1E-05 , loss 0.024 , qa loss 0.024 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 12:33:26,548 - 20:25:59 - 888.0s - INFO - __main__ - progress 10.285 , lr 3.0E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 12:48:17,002 - 20:40:49 - 890.5s - INFO - __main__ - progress 10.427 , lr 3.0E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 13:03:05,470 - 20:55:38 - 888.5s - INFO - __main__ - progress 10.569 , lr 2.9E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.4
+2023-06-09 13:17:56,894 - 21:10:29 - 891.4s - INFO - __main__ - progress 10.712 , lr 2.9E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 13:32:47,255 - 21:25:20 - 890.4s - INFO - __main__ - progress 10.855 , lr 2.9E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 13:47:39,203 - 21:40:12 - 891.9s - INFO - __main__ - progress 10.997 , lr 2.8E-05 , loss 0.023 , qa loss 0.023 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 13:48:01,542 - 21:40:34 - 22.3s - INFO - __main__ - epoch 11/20 done , tot steps 77080 , lr 2.8E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 119.6
+2023-06-09 14:03:02,802 - 21:55:35 - 901.3s - INFO - __main__ - progress 11.143 , lr 2.8E-05 , loss 0.021 , qa loss 0.021 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 14:17:53,785 - 22:10:26 - 891.0s - INFO - __main__ - progress 11.285 , lr 2.7E-05 , loss 0.021 , qa loss 0.021 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 14:32:41,833 - 22:25:14 - 888.0s - INFO - __main__ - progress 11.430 , lr 2.7E-05 , loss 0.020 , qa loss 0.020 , lm loss 0.000 , avg batch size 120.4
+2023-06-09 14:47:30,797 - 22:40:03 - 889.0s - INFO - __main__ - progress 11.573 , lr 2.6E-05 , loss 0.020 , qa loss 0.020 , lm loss 0.000 , avg batch size 120.4
+2023-06-09 15:02:17,956 - 22:54:50 - 887.2s - INFO - __main__ - progress 11.716 , lr 2.6E-05 , loss 0.020 , qa loss 0.020 , lm loss 0.000 , avg batch size 120.3
+2023-06-09 15:17:07,101 - 23:09:40 - 889.1s - INFO - __main__ - progress 11.859 , lr 2.5E-05 , loss 0.020 , qa loss 0.020 , lm loss 0.000 , avg batch size 120.3
+2023-06-09 15:31:54,341 - 23:24:27 - 887.2s - INFO - __main__ - progress 11.998 , lr 2.5E-05 , loss 0.021 , qa loss 0.021 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 15:32:12,014 - 23:24:44 - 17.7s - INFO - __main__ - epoch 12/20 done , tot steps 84093 , lr 2.5E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 119.8
+2023-06-09 15:47:11,453 - 23:39:44 - 899.4s - INFO - __main__ - progress 12.143 , lr 2.5E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 16:02:00,897 - 23:54:33 - 889.4s - INFO - __main__ - progress 12.287 , lr 2.4E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 120.3
+2023-06-09 16:16:52,080 - 1 day, 0:09:24 - 891.2s - INFO - __main__ - progress 12.428 , lr 2.4E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 16:31:41,337 - 1 day, 0:24:14 - 889.3s - INFO - __main__ - progress 12.571 , lr 2.3E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 16:46:32,796 - 1 day, 0:39:05 - 891.5s - INFO - __main__ - progress 12.713 , lr 2.3E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 17:01:21,943 - 1 day, 0:53:54 - 889.1s - INFO - __main__ - progress 12.855 , lr 2.2E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 17:16:14,252 - 1 day, 1:08:47 - 892.3s - INFO - __main__ - progress 13.000 , lr 2.2E-05 , loss 0.018 , qa loss 0.018 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 17:16:19,965 - 1 day, 1:08:52 - 5.7s - INFO - __main__ - epoch 13/20 done , tot steps 91095 , lr 2.2E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 120.0
+2023-06-09 17:31:21,828 - 1 day, 1:23:54 - 901.9s - INFO - __main__ - progress 13.143 , lr 2.1E-05 , loss 0.016 , qa loss 0.016 , lm loss 0.000 , avg batch size 120.2
+2023-06-09 17:46:13,549 - 1 day, 1:38:46 - 891.7s - INFO - __main__ - progress 13.286 , lr 2.1E-05 , loss 0.016 , qa loss 0.016 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 18:01:03,515 - 1 day, 1:53:36 - 890.0s - INFO - __main__ - progress 13.430 , lr 2.1E-05 , loss 0.016 , qa loss 0.016 , lm loss 0.000 , avg batch size 120.3
+2023-06-09 18:15:56,005 - 1 day, 2:08:28 - 892.5s - INFO - __main__ - progress 13.572 , lr 2.0E-05 , loss 0.016 , qa loss 0.016 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 18:30:46,723 - 1 day, 2:23:19 - 890.7s - INFO - __main__ - progress 13.713 , lr 2.0E-05 , loss 0.017 , qa loss 0.017 , lm loss 0.000 , avg batch size 119.8
+2023-06-09 18:45:40,407 - 1 day, 2:38:13 - 893.7s - INFO - __main__ - progress 13.856 , lr 1.9E-05 , loss 0.016 , qa loss 0.016 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 19:00:30,347 - 1 day, 2:53:03 - 889.9s - INFO - __main__ - progress 13.999 , lr 1.9E-05 , loss 0.017 , qa loss 0.017 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 19:00:41,205 - 1 day, 2:53:14 - 10.9s - INFO - __main__ - epoch 14/20 done , tot steps 98103 , lr 1.9E-05 , loss 0.02 , qa loss 0.02 , lm loss 0.00 , avg batch size 119.9
+2023-06-09 19:15:45,050 - 1 day, 3:08:17 - 903.8s - INFO - __main__ - progress 14.143 , lr 1.8E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 19:30:36,304 - 1 day, 3:23:09 - 891.3s - INFO - __main__ - progress 14.286 , lr 1.8E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 19:45:29,118 - 1 day, 3:38:02 - 892.8s - INFO - __main__ - progress 14.427 , lr 1.7E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 20:00:20,909 - 1 day, 3:52:53 - 891.8s - INFO - __main__ - progress 14.570 , lr 1.7E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 119.7
+2023-06-09 20:15:14,562 - 1 day, 4:07:47 - 893.7s - INFO - __main__ - progress 14.714 , lr 1.7E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 20:30:06,148 - 1 day, 4:22:39 - 891.6s - INFO - __main__ - progress 14.857 , lr 1.6E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 20:44:59,378 - 1 day, 4:37:32 - 893.2s - INFO - __main__ - progress 15.000 , lr 1.6E-05 , loss 0.015 , qa loss 0.015 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 20:45:04,381 - 1 day, 4:37:37 - 5.0s - INFO - __main__ - epoch 15/20 done , tot steps 105105 , lr 1.6E-05 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 120.0
+2023-06-09 21:00:06,357 - 1 day, 4:52:39 - 902.0s - INFO - __main__ - progress 15.144 , lr 1.5E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.8
+2023-06-09 21:14:59,798 - 1 day, 5:07:32 - 893.4s - INFO - __main__ - progress 15.288 , lr 1.5E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.9
+2023-06-09 21:29:50,791 - 1 day, 5:22:23 - 891.0s - INFO - __main__ - progress 15.431 , lr 1.4E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.6
+2023-06-09 21:44:42,988 - 1 day, 5:37:15 - 892.2s - INFO - __main__ - progress 15.572 , lr 1.4E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.2
+2023-06-09 21:59:32,007 - 1 day, 5:52:04 - 889.0s - INFO - __main__ - progress 15.715 , lr 1.3E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 22:14:23,996 - 1 day, 6:06:56 - 892.0s - INFO - __main__ - progress 15.858 , lr 1.3E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.1
+2023-06-09 22:29:12,991 - 1 day, 6:21:45 - 889.0s - INFO - __main__ - progress 16.000 , lr 1.3E-05 , loss 0.013 , qa loss 0.013 , lm loss 0.000 , avg batch size 120.0
+2023-06-09 22:29:18,725 - 1 day, 6:21:51 - 5.7s - INFO - __main__ - epoch 16/20 done , tot steps 112107 , lr 1.3E-05 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 120.0
+2023-06-09 22:44:22,075 - 1 day, 6:36:54 - 903.3s - INFO - __main__ - progress 16.142 , lr 1.2E-05 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 119.0
+2023-06-09 22:59:11,207 - 1 day, 6:51:44 - 889.1s - INFO - __main__ - progress 16.283 , lr 1.2E-05 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 118.9
+2023-06-09 23:14:03,853 - 1 day, 7:06:36 - 892.6s - INFO - __main__ - progress 16.426 , lr 1.1E-05 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 119.2
+2023-06-09 23:28:53,288 - 1 day, 7:21:26 - 889.4s - INFO - __main__ - progress 16.570 , lr 1.1E-05 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 119.6
+2023-06-09 23:43:46,458 - 1 day, 7:36:19 - 893.2s - INFO - __main__ - progress 16.714 , lr 1.0E-05 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 119.9
+2023-06-09 23:58:36,158 - 1 day, 7:51:09 - 889.7s - INFO - __main__ - progress 16.857 , lr 9.8E-06 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 00:13:28,041 - 1 day, 8:06:00 - 891.9s - INFO - __main__ - progress 16.999 , lr 9.4E-06 , loss 0.012 , qa loss 0.012 , lm loss 0.000 , avg batch size 119.9
+2023-06-10 00:13:36,466 - 1 day, 8:06:09 - 8.4s - INFO - __main__ - epoch 17/20 done , tot steps 119112 , lr 9.4E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 119.9
+2023-06-10 00:28:38,937 - 1 day, 8:21:11 - 902.5s - INFO - __main__ - progress 17.144 , lr 8.9E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.6
+2023-06-10 00:43:32,170 - 1 day, 8:36:05 - 893.2s - INFO - __main__ - progress 17.286 , lr 8.5E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.1
+2023-06-10 00:58:22,257 - 1 day, 8:50:55 - 890.1s - INFO - __main__ - progress 17.429 , lr 8.1E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 01:13:12,779 - 1 day, 9:05:45 - 890.5s - INFO - __main__ - progress 17.570 , lr 7.6E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 119.8
+2023-06-10 01:28:01,948 - 1 day, 9:20:34 - 889.2s - INFO - __main__ - progress 17.714 , lr 7.2E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 01:42:51,538 - 1 day, 9:35:24 - 889.6s - INFO - __main__ - progress 17.857 , lr 6.7E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 01:57:42,175 - 1 day, 9:50:15 - 890.6s - INFO - __main__ - progress 18.000 , lr 6.3E-06 , loss 0.011 , qa loss 0.011 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 01:57:46,915 - 1 day, 9:50:19 - 4.7s - INFO - __main__ - epoch 18/20 done , tot steps 126113 , lr 6.3E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 120.0
+2023-06-10 02:12:48,620 - 1 day, 10:05:21 - 901.7s - INFO - __main__ - progress 18.143 , lr 5.8E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.4
+2023-06-10 02:27:37,843 - 1 day, 10:20:10 - 889.2s - INFO - __main__ - progress 18.287 , lr 5.4E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.5
+2023-06-10 02:42:26,080 - 1 day, 10:34:58 - 888.2s - INFO - __main__ - progress 18.429 , lr 4.9E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 02:57:17,089 - 1 day, 10:49:50 - 891.0s - INFO - __main__ - progress 18.571 , lr 4.5E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 03:12:04,667 - 1 day, 11:04:37 - 887.6s - INFO - __main__ - progress 18.714 , lr 4.0E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 03:26:55,237 - 1 day, 11:19:28 - 890.6s - INFO - __main__ - progress 18.856 , lr 3.6E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 119.8
+2023-06-10 03:41:44,252 - 1 day, 11:34:17 - 889.0s - INFO - __main__ - progress 19.000 , lr 3.1E-06 , loss 0.010 , qa loss 0.010 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 03:41:50,112 - 1 day, 11:34:23 - 5.9s - INFO - __main__ - epoch 19/20 done , tot steps 133115 , lr 3.1E-06 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 120.0
+2023-06-10 03:56:54,994 - 1 day, 11:49:27 - 904.9s - INFO - __main__ - progress 19.143 , lr 2.7E-06 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 04:11:43,232 - 1 day, 12:04:16 - 888.2s - INFO - __main__ - progress 19.285 , lr 2.2E-06 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 119.8
+2023-06-10 04:26:35,423 - 1 day, 12:19:08 - 892.2s - INFO - __main__ - progress 19.428 , lr 1.8E-06 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 04:41:25,987 - 1 day, 12:33:58 - 890.6s - INFO - __main__ - progress 19.571 , lr 1.4E-06 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 120.0
+2023-06-10 04:56:19,990 - 1 day, 12:48:52 - 894.0s - INFO - __main__ - progress 19.715 , lr 9.1E-07 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 120.1
+2023-06-10 05:11:10,372 - 1 day, 13:03:43 - 890.4s - INFO - __main__ - progress 19.857 , lr 4.6E-07 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 119.9
+2023-06-10 05:26:02,656 - 1 day, 13:18:35 - 892.3s - INFO - __main__ - progress 19.999 , lr 1.9E-08 , loss 0.009 , qa loss 0.009 , lm loss 0.000 , avg batch size 119.9
+2023-06-10 05:26:14,515 - 1 day, 13:18:47 - 11.9s - INFO - __main__ - epoch 20/20 done , tot steps 140124 , lr 1.6E-08 , loss 0.01 , qa loss 0.01 , lm loss 0.00 , avg batch size 119.8
+2023-06-10 05:26:26,015 - 1 day, 13:18:58 - 11.5s - INFO - __main__ - start to train { task: ['woz.en'], seq train type: lll }
+2023-06-10 05:26:39,771 - 1 day, 13:19:12 - 13.8s - INFO - utils - writing extra data in ../../model_cm2/gpt2/lll/sst_srl_zre_woz.en_0.0/zre/lm.csv ...
+2023-06-10 05:26:39,772 - 1 day, 13:19:12 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-10 05:26:39,913 - 1 day, 13:19:12 - 0.1s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+The current active adapter is Stack[zre]
+The task with which model is saved zre
+2023-06-10 05:26:45,636 - 1 day, 13:19:18 - 5.7s - INFO - __main__ - len of train dataset: 2536 , max train batch size 4 , num of opt steps: 50720
+2023-06-10 05:28:04,684 - 1 day, 13:20:37 - 79.0s - INFO - __main__ - epoch 1/20 done , tot steps 634 , lr 5.9E-05 , loss 2.24 , qa loss 2.24 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:29:19,222 - 1 day, 13:21:52 - 74.5s - INFO - __main__ - epoch 2/20 done , tot steps 1268 , lr 5.6E-05 , loss 0.39 , qa loss 0.39 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:30:34,522 - 1 day, 13:23:07 - 75.3s - INFO - __main__ - epoch 3/20 done , tot steps 1902 , lr 5.3E-05 , loss 0.28 , qa loss 0.28 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:31:49,913 - 1 day, 13:24:22 - 75.4s - INFO - __main__ - epoch 4/20 done , tot steps 2536 , lr 5.0E-05 , loss 0.22 , qa loss 0.22 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:33:06,263 - 1 day, 13:25:39 - 76.4s - INFO - __main__ - epoch 5/20 done , tot steps 3170 , lr 4.7E-05 , loss 0.18 , qa loss 0.18 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:34:21,557 - 1 day, 13:26:54 - 75.3s - INFO - __main__ - epoch 6/20 done , tot steps 3804 , lr 4.4E-05 , loss 0.16 , qa loss 0.16 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:35:37,597 - 1 day, 13:28:10 - 76.0s - INFO - __main__ - epoch 7/20 done , tot steps 4438 , lr 4.1E-05 , loss 0.15 , qa loss 0.15 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:36:52,363 - 1 day, 13:29:25 - 74.8s - INFO - __main__ - epoch 8/20 done , tot steps 5072 , lr 3.8E-05 , loss 0.14 , qa loss 0.14 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:38:08,067 - 1 day, 13:30:40 - 75.7s - INFO - __main__ - epoch 9/20 done , tot steps 5706 , lr 3.4E-05 , loss 0.12 , qa loss 0.12 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:39:22,662 - 1 day, 13:31:55 - 74.6s - INFO - __main__ - epoch 10/20 done , tot steps 6340 , lr 3.1E-05 , loss 0.11 , qa loss 0.11 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:40:38,362 - 1 day, 13:33:11 - 75.7s - INFO - __main__ - epoch 11/20 done , tot steps 6974 , lr 2.8E-05 , loss 0.11 , qa loss 0.11 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:41:53,571 - 1 day, 13:34:26 - 75.2s - INFO - __main__ - epoch 12/20 done , tot steps 7608 , lr 2.5E-05 , loss 0.09 , qa loss 0.09 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:43:08,259 - 1 day, 13:35:41 - 74.7s - INFO - __main__ - epoch 13/20 done , tot steps 8242 , lr 2.2E-05 , loss 0.09 , qa loss 0.09 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:44:24,032 - 1 day, 13:36:56 - 75.8s - INFO - __main__ - epoch 14/20 done , tot steps 8876 , lr 1.9E-05 , loss 0.08 , qa loss 0.08 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:45:39,377 - 1 day, 13:38:12 - 75.3s - INFO - __main__ - epoch 15/20 done , tot steps 9510 , lr 1.6E-05 , loss 0.08 , qa loss 0.08 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:46:54,591 - 1 day, 13:39:27 - 75.2s - INFO - __main__ - epoch 16/20 done , tot steps 10144 , lr 1.3E-05 , loss 0.07 , qa loss 0.07 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:48:09,267 - 1 day, 13:40:42 - 74.7s - INFO - __main__ - epoch 17/20 done , tot steps 10778 , lr 9.4E-06 , loss 0.06 , qa loss 0.06 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:49:23,680 - 1 day, 13:41:56 - 74.4s - INFO - __main__ - epoch 18/20 done , tot steps 11412 , lr 6.3E-06 , loss 0.06 , qa loss 0.06 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:50:38,774 - 1 day, 13:43:11 - 75.1s - INFO - __main__ - epoch 19/20 done , tot steps 12046 , lr 3.1E-06 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 4.0
+2023-06-10 05:51:54,357 - 1 day, 13:44:27 - 75.6s - INFO - __main__ - epoch 20/20 done , tot steps 12680 , lr 1.5E-08 , loss 0.05 , qa loss 0.05 , lm loss 0.00 , avg batch size 4.0
+The current active adapter is Stack[woz_en]
+The task with which model is saved woz_en
+Wall Execution time: 13:44:08
+CPU Execution time: 22:25:17

@@ -16,7 +16,7 @@ from settings import TOKENIZER, SPECIAL_TOKEN_IDS, FILL_VAL, SAVE_NAME, FINAL_SA
 from scheduler import AnnealingLR
 from regularizers import REG_TYPES, REG_TYPE_KEYS, Weight_Regularized_AdamW, Weight_Regularized_SGD
 from torch.nn import CrossEntropyLoss
-from transformers.adapters import ConfigUnion, AdapterConfig, PrefixTuningConfig
+from transformers.adapters import ConfigUnion, AdapterConfig, PrefixTuningConfig, ParallelConfig
 logger = logging.getLogger(__name__)
 
 
@@ -29,10 +29,11 @@ def train(task_ids, model):
     make_dir(model_dir)
 
     adapter_config = ConfigUnion(
-                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=16, non_linearity="relu", init_weights="mam_adapter"),
+                            # AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=3, non_linearity="relu", init_weights="mam_adapter"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=20, bottleneck_size=800)
+                            # AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=30, bottleneck_size=800,non_linearity='relu'),
+                            ParallelConfig(scaling="learned")
                         )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();
@@ -235,7 +236,7 @@ def train(task_ids, model):
         ### Addition
         
 #         adapter_name = args.tasks[task_ids[0]].replace(".", "_")   ##Change
-        adapter_name = args.tasks[0].replace(".", "_")
+        adapter_name = args.tasks[task_ids[0]].replace(".", "_")
         if ep==0:
             torch.save(model.state_dict(), os.path.join(model_dir, SAVE_NAME+str(ep+1)))
         model.save_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)), adapter_name)
