@@ -19,6 +19,12 @@ from torch.nn import CrossEntropyLoss
 from transformers.adapters import ConfigUnion, AdapterConfig, PrefixTuningConfig, ParallelConfig
 logger = logging.getLogger(__name__)
 
+import wandb
+wandb.init(name='test run',
+           project='cl-nlp',
+           notes='This is to setup wandb',
+           tags=['Adapters', 'Prefix tuning'])
+
 
 def train(task_ids, model):
     tasks = [args.tasks[task_id] for task_id in task_ids]
@@ -29,11 +35,11 @@ def train(task_ids, model):
     make_dir(model_dir)
 
     adapter_config = ConfigUnion(
-                            # AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=3, non_linearity="relu", init_weights="mam_adapter"),
+                            # AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=16, non_linearity="relu", init_weights="mam_adapter"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            # AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=30, bottleneck_size=800,non_linearity='relu'),
-                            ParallelConfig(scaling="learned")
+                            PrefixTuningConfig(cross_prefix=True, prefix_length=30, bottleneck_size=256,non_linearity='relu'),
+                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
+                            # ParallelConfig(scaling="learned")
                         )
     if task_ids[0]>0:
 #         import pdb;pdb.set_trace();
@@ -129,7 +135,6 @@ def train(task_ids, model):
     if not args.fp32:  # again because resize_token_embeddings makes embedding layer fp32
         model = FP16_Module(model)
 
-    parallel_model = DataParallelModel(WrapModel(model), args.device_ids)
 
     train_qadata = QADataset(train_dataset, "train", SPECIAL_TOKEN_IDS[tasks[0]], train_extra_data)
     max_train_batch_size = max(len(train_qadata) // args.min_n_steps, args.min_batch_size)
@@ -161,7 +166,10 @@ def train(task_ids, model):
 #         model.set_active_adapters(adapter_name) ##Change
 #         model.train_adapter(adapter_name)      ##Change
 #         model = model.to(args.device_ids[0])
-        
+    
+    wandb.watch(model)
+    parallel_model = DataParallelModel(WrapModel(model), args.device_ids)
+    
     param_optimizer = list(model.named_parameters())  
     no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
     optimizer_grouped_parameters = [
@@ -237,7 +245,7 @@ def train(task_ids, model):
         
 #         adapter_name = args.tasks[task_ids[0]].replace(".", "_")   ##Change
         adapter_name = args.tasks[task_ids[0]].replace(".", "_")
-        if ep==0:
+        if ep==n_train_epochs-1:
             torch.save(model.state_dict(), os.path.join(model_dir, SAVE_NAME+str(ep+1)))
         model.save_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)), adapter_name)
         ### Addition ends here
@@ -245,6 +253,10 @@ def train(task_ids, model):
         logger.info('epoch {}/{} done , tot steps {} , lr {:.1E} , loss {:.2f} , qa loss {:.2f} , lm loss {:.2f} , avg batch size {:.1f}'.format(
             ep+1, n_train_epochs, tot_n_steps, scheduler.get_lr(), cum_loss/cur_n_inputs, cum_qa_loss/cur_n_inputs, cum_lm_loss/cur_n_inputs, cur_n_inputs/(n_steps+1)
         ))
+        wandb.log({
+            "Epoch":ep+1,
+            "Train Loss": cum_loss/cur_n_inputs
+            })
 
     # task end do for reg
     if args.seq_train_type in REG_TYPE_KEYS:

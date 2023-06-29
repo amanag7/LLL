@@ -111,7 +111,7 @@ def test_one_to_many(task_load):
 #         import pdb;pdb.set_trace();
     ep = args.n_train_epochs[task_load] - 1
     model_dir = get_model_dir([task_load])
-    model_path = os.path.join(model_dir, 'model-1')
+    model_path = os.path.join(model_dir, 'model-{}'.format(ep+1))
     config_path = os.path.join(model_dir,CONFIG_NAME)
 
     gen_token = get_gen_token(task_load)
@@ -125,7 +125,7 @@ def test_one_to_many(task_load):
     # adapter_name = args.tasks[0]   ##Change
     adapter_name = task_load.replace(".","_")
     model.load_adapter(os.path.join(model_dir, SAVE_NAME+"adapter_"+str(ep+1)))
-    model.load_state_dict(state_dict)
+    model.load_state_dict(state_dict,strict=False)
     model.set_active_adapters(adapter_name)
     model = model.cuda()
     ## Additione ends here
@@ -137,8 +137,8 @@ def test_one_to_many(task_load):
     logger.info("task: {}, epoch: {}".format(task_load, ep+1))
     score_dict = {k:None for k in args.tasks}
     with torch.no_grad():
-        for task_eval in args.tasks:
-            test_one_to_one(task_load, task_eval, model, score_dict,test_run)
+        # for task_eval in args.tasks:
+        test_one_to_one(task_load, task_load, model, score_dict,test_run)
     logger.info("score: {}".format(score_dict))
     score_dicts.append(score_dict)
     # loop end

@@ -1,0 +1,86 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-06-16 01:25:16,200 - 0:00:15 - 0.0s - INFO - __main__ - args = Namespace(adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[1], dynamic_epochs=False, fp32=False, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_pm2/gpt2/lll/wikisql_ag_amazon_sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'wikisql': 20, 'ag': 20, 'amazon': 20, 'sst': 20, 'srl': 20, 'woz.en': 20}, n_warmup_ratio=0.005, n_workers=25, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['wikisql', 'ag', 'amazon', 'sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-06-16 01:25:29,055 - 0:00:27 - 12.9s - INFO - __main__ - task: wikisql, epoch: 20
+2023-06-16 01:25:29,056 - 0:00:27 - 0.0s - INFO - __main__ - start to test { task: wikisql (load) wikisql (eval), seq train type: lll }
+2023-06-16 01:26:36,236 - 0:01:35 - 67.2s - INFO - __main__ - len of test dataset: 15878
+2023-06-17 04:53:14,530 - 1 day, 3:28:13 - 98798.3s - INFO - __main__ - start to test { task: wikisql (load) ag (eval), seq train type: lll }
+2023-06-17 04:53:16,510 - 1 day, 3:28:15 - 2.0s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 05:43:11,986 - 1 day, 4:18:10 - 2995.5s - INFO - __main__ - start to test { task: wikisql (load) amazon (eval), seq train type: lll }
+2023-06-17 05:43:14,638 - 1 day, 4:18:13 - 2.7s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 06:08:38,965 - 1 day, 4:43:37 - 1524.3s - INFO - __main__ - start to test { task: wikisql (load) sst (eval), seq train type: lll }
+2023-06-17 06:08:41,578 - 1 day, 4:43:40 - 2.6s - INFO - __main__ - len of test dataset: 1821
+2023-06-17 06:08:44,978 - 1 day, 4:43:43 - 3.4s - INFO - __main__ - start to test { task: wikisql (load) srl (eval), seq train type: lll }
+2023-06-17 06:08:47,817 - 1 day, 4:43:46 - 2.8s - INFO - __main__ - len of test dataset: 2201
+2023-06-17 07:14:08,181 - 1 day, 5:49:07 - 3920.4s - INFO - __main__ - start to test { task: wikisql (load) woz.en (eval), seq train type: lll }
+2023-06-17 07:14:10,826 - 1 day, 5:49:09 - 2.6s - INFO - __main__ - len of test dataset: 1646
+2023-06-17 07:43:46,535 - 1 day, 6:18:45 - 1775.7s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 43.77125582567074), ('em', 24.719738002267288), ('nf1', 84.89704560594001), ('nem', 28.328504849477266)]), 'ag': OrderedDict([('em', 0.0), ('nf1', 0.6828947368421042), ('nem', 0.0)]), 'amazon': OrderedDict([('em', 0.0), ('nf1', 12.083333333333215), ('nem', 0.0)]), 'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 16.444903624940547), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 12.574286241474617), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+2023-06-17 07:44:00,382 - 1 day, 6:18:59 - 13.8s - INFO - __main__ - task: ag, epoch: 20
+2023-06-17 07:44:00,382 - 1 day, 6:18:59 - 0.0s - INFO - __main__ - start to test { task: ag (load) wikisql (eval), seq train type: lll }
+2023-06-17 07:45:07,144 - 1 day, 6:20:06 - 66.8s - INFO - __main__ - len of test dataset: 15878
+2023-06-17 12:53:53,574 - 1 day, 11:28:52 - 18526.4s - INFO - __main__ - start to test { task: ag (load) ag (eval), seq train type: lll }
+2023-06-17 12:53:56,192 - 1 day, 11:28:55 - 2.6s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 13:21:23,874 - 1 day, 11:56:22 - 1647.7s - INFO - __main__ - start to test { task: ag (load) amazon (eval), seq train type: lll }
+2023-06-17 13:21:27,026 - 1 day, 11:56:25 - 3.2s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 13:46:53,817 - 1 day, 12:21:52 - 1526.8s - INFO - __main__ - start to test { task: ag (load) sst (eval), seq train type: lll }
+2023-06-17 13:46:56,566 - 1 day, 12:21:55 - 2.7s - INFO - __main__ - len of test dataset: 1821
+2023-06-17 13:46:59,945 - 1 day, 12:21:58 - 3.4s - INFO - __main__ - start to test { task: ag (load) srl (eval), seq train type: lll }
+2023-06-17 13:47:02,680 - 1 day, 12:22:01 - 2.7s - INFO - __main__ - len of test dataset: 2201
+2023-06-17 13:54:21,419 - 1 day, 12:29:20 - 438.7s - INFO - __main__ - start to test { task: ag (load) woz.en (eval), seq train type: lll }
+2023-06-17 13:54:24,343 - 1 day, 12:29:23 - 2.9s - INFO - __main__ - len of test dataset: 1646
+2023-06-17 13:59:46,876 - 1 day, 12:34:45 - 322.5s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 0.0), ('em', 0.0), ('nf1', 0.006110166969069038), ('nem', 0.0)]), 'ag': OrderedDict([('em', 89.21052631578948), ('nf1', 89.21052631578948), ('nem', 89.21052631578948)]), 'amazon': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.06739360896562169), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.024301336573511544), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+2023-06-17 14:00:02,891 - 1 day, 12:35:01 - 16.0s - INFO - __main__ - task: amazon, epoch: 20
+2023-06-17 14:00:02,891 - 1 day, 12:35:01 - 0.0s - INFO - __main__ - start to test { task: amazon (load) wikisql (eval), seq train type: lll }
+2023-06-17 14:01:08,726 - 1 day, 12:36:07 - 65.8s - INFO - __main__ - len of test dataset: 15878
+2023-06-17 17:28:06,801 - 1 day, 16:03:05 - 12418.1s - INFO - __main__ - start to test { task: amazon (load) ag (eval), seq train type: lll }
+2023-06-17 17:28:08,938 - 1 day, 16:03:07 - 2.1s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 18:01:48,369 - 1 day, 16:36:47 - 2019.4s - INFO - __main__ - start to test { task: amazon (load) amazon (eval), seq train type: lll }
+2023-06-17 18:01:50,733 - 1 day, 16:36:49 - 2.4s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 18:27:11,647 - 1 day, 17:02:10 - 1520.9s - INFO - __main__ - start to test { task: amazon (load) sst (eval), seq train type: lll }
+2023-06-17 18:27:13,782 - 1 day, 17:02:12 - 2.1s - INFO - __main__ - len of test dataset: 1821
+2023-06-17 18:27:16,957 - 1 day, 17:02:15 - 3.2s - INFO - __main__ - start to test { task: amazon (load) srl (eval), seq train type: lll }
+2023-06-17 18:27:19,539 - 1 day, 17:02:18 - 2.6s - INFO - __main__ - len of test dataset: 2201
+2023-06-17 18:35:59,973 - 1 day, 17:10:58 - 520.4s - INFO - __main__ - start to test { task: amazon (load) woz.en (eval), seq train type: lll }
+2023-06-17 18:36:01,732 - 1 day, 17:11:00 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-06-17 18:41:34,987 - 1 day, 17:16:33 - 333.3s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 0.0), ('em', 0.0), ('nf1', 0.0008997174887085454), ('nem', 0.0)]), 'ag': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'amazon': OrderedDict([('em', 52.26315789473684), ('nf1', 69.08991228070226), ('nem', 52.26315789473684)]), 'sst': OrderedDict([('em', 9.555189456342669), ('nf1', 9.555189456342669), ('nem', 9.555189456342669)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.03517995351850776), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+2023-06-17 18:41:46,294 - 1 day, 17:16:45 - 11.3s - INFO - __main__ - task: sst, epoch: 20
+2023-06-17 18:41:46,294 - 1 day, 17:16:45 - 0.0s - INFO - __main__ - start to test { task: sst (load) wikisql (eval), seq train type: lll }
+2023-06-17 18:42:52,178 - 1 day, 17:17:51 - 65.9s - INFO - __main__ - len of test dataset: 15878
+2023-06-17 20:18:19,856 - 1 day, 18:53:18 - 5727.7s - INFO - __main__ - start to test { task: sst (load) ag (eval), seq train type: lll }
+2023-06-17 20:18:22,026 - 1 day, 18:53:20 - 2.2s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 20:37:47,918 - 1 day, 19:12:46 - 1165.9s - INFO - __main__ - start to test { task: sst (load) amazon (eval), seq train type: lll }
+2023-06-17 20:37:50,584 - 1 day, 19:12:49 - 2.7s - INFO - __main__ - len of test dataset: 7600
+2023-06-17 21:02:26,536 - 1 day, 19:37:25 - 1476.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-06-17 21:02:28,397 - 1 day, 19:37:27 - 1.9s - INFO - __main__ - len of test dataset: 1821
+2023-06-17 21:02:30,968 - 1 day, 19:37:29 - 2.6s - INFO - __main__ - start to test { task: sst (load) srl (eval), seq train type: lll }
+2023-06-17 21:02:33,007 - 1 day, 19:37:31 - 2.0s - INFO - __main__ - len of test dataset: 2201
+2023-06-17 21:07:57,978 - 1 day, 19:42:56 - 325.0s - INFO - __main__ - start to test { task: sst (load) woz.en (eval), seq train type: lll }
+2023-06-17 21:07:59,802 - 1 day, 19:42:58 - 1.8s - INFO - __main__ - len of test dataset: 1646
+2023-06-17 21:11:25,458 - 1 day, 19:46:24 - 205.7s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 0.0), ('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'ag': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'amazon': OrderedDict([('em', 24.61842105263158), ('nf1', 45.276315789472484), ('nem', 24.61842105263158)]), 'sst': OrderedDict([('em', 75.6727073036793), ('nf1', 75.6727073036793), ('nem', 75.6727073036793)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 0.02451987913141934), ('nem', 0.0)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+2023-06-17 21:11:36,696 - 1 day, 19:46:35 - 11.2s - INFO - __main__ - task: srl, epoch: 20
+2023-06-17 21:11:36,696 - 1 day, 19:46:35 - 0.0s - INFO - __main__ - start to test { task: srl (load) wikisql (eval), seq train type: lll }
+2023-06-17 21:12:40,997 - 1 day, 19:47:39 - 64.3s - INFO - __main__ - len of test dataset: 15878
+2023-06-18 00:47:33,564 - 1 day, 23:22:32 - 12892.6s - INFO - __main__ - start to test { task: srl (load) ag (eval), seq train type: lll }
+2023-06-18 00:47:35,735 - 1 day, 23:22:34 - 2.2s - INFO - __main__ - len of test dataset: 7600
+2023-06-18 01:27:07,925 - 2 days, 0:02:06 - 2372.2s - INFO - __main__ - start to test { task: srl (load) amazon (eval), seq train type: lll }
+2023-06-18 01:27:10,573 - 2 days, 0:02:09 - 2.6s - INFO - __main__ - len of test dataset: 7600
+2023-06-18 01:52:13,078 - 2 days, 0:27:11 - 1502.5s - INFO - __main__ - start to test { task: srl (load) sst (eval), seq train type: lll }
+2023-06-18 01:52:15,453 - 2 days, 0:27:14 - 2.4s - INFO - __main__ - len of test dataset: 1821
+2023-06-18 01:52:18,437 - 2 days, 0:27:17 - 3.0s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-06-18 01:52:20,875 - 2 days, 0:27:19 - 2.4s - INFO - __main__ - len of test dataset: 2201
+2023-06-18 02:13:26,877 - 2 days, 0:48:25 - 1266.0s - INFO - __main__ - start to test { task: srl (load) woz.en (eval), seq train type: lll }
+2023-06-18 02:13:29,123 - 2 days, 0:48:28 - 2.2s - INFO - __main__ - len of test dataset: 1646
+2023-06-18 02:22:52,210 - 2 days, 0:57:51 - 563.1s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 0.0), ('em', 0.0), ('nf1', 18.688558640788685), ('nem', 0.0)]), 'ag': OrderedDict([('em', 0.0), ('nf1', 1.5473684210526333), ('nem', 0.4473684210526315)]), 'amazon': OrderedDict([('em', 0.6578947368421052), ('nf1', 4.739035087719302), ('nem', 2.736842105263158)]), 'sst': OrderedDict([('em', 33.38824821526634), ('nf1', 33.38824821526634), ('nem', 33.38824821526634)]), 'srl': OrderedDict([('em', 23.898228078146296), ('nf1', 43.63640617530774), ('nem', 27.987278509768288)]), 'woz.en': OrderedDict([('em', 0.0), ('nf1', 7.563484361350668), ('nem', 1.2150668286755772), ('joint_goal_em', 0.0), ('turn_request_em', 32.32077764277035), ('turn_goal_em', 52.308626974483595), ('avg_dialogue', 16.160388821385176)])}
+2023-06-18 02:23:03,420 - 2 days, 0:58:02 - 11.2s - INFO - __main__ - task: woz.en, epoch: 20
+2023-06-18 02:23:03,420 - 2 days, 0:58:02 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) wikisql (eval), seq train type: lll }
+2023-06-18 02:24:08,019 - 2 days, 0:59:06 - 64.6s - INFO - __main__ - len of test dataset: 15878
+2023-06-18 19:59:09,428 - 2 days, 18:34:08 - 63301.4s - INFO - __main__ - start to test { task: woz.en (load) ag (eval), seq train type: lll }
+2023-06-18 19:59:12,626 - 2 days, 18:34:11 - 3.2s - INFO - __main__ - len of test dataset: 7600
+2023-06-18 20:37:16,424 - 2 days, 19:12:15 - 2283.8s - INFO - __main__ - start to test { task: woz.en (load) amazon (eval), seq train type: lll }
+2023-06-18 20:37:20,189 - 2 days, 19:12:19 - 3.8s - INFO - __main__ - len of test dataset: 7600
+2023-06-18 21:00:34,351 - 2 days, 19:35:33 - 1394.2s - INFO - __main__ - start to test { task: woz.en (load) sst (eval), seq train type: lll }
+2023-06-18 21:00:37,476 - 2 days, 19:35:36 - 3.1s - INFO - __main__ - len of test dataset: 1821
+2023-06-18 21:00:41,192 - 2 days, 19:35:40 - 3.7s - INFO - __main__ - start to test { task: woz.en (load) srl (eval), seq train type: lll }
+2023-06-18 21:00:44,265 - 2 days, 19:35:43 - 3.1s - INFO - __main__ - len of test dataset: 2201
+2023-06-18 21:27:59,484 - 2 days, 20:02:58 - 1635.2s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-06-18 21:28:02,581 - 2 days, 20:03:01 - 3.1s - INFO - __main__ - len of test dataset: 1646
+2023-06-18 21:36:34,909 - 2 days, 20:11:33 - 512.3s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 0.0), ('em', 0.0), ('nf1', 1.998619184436365), ('nem', 0.0)]), 'ag': OrderedDict([('em', 0.0), ('nf1', 0.05701754385964912), ('nem', 0.039473684210526314)]), 'amazon': OrderedDict([('em', 0.0), ('nf1', 0.3026315789473684), ('nem', 0.3026315789473684)]), 'sst': OrderedDict([('em', 0.0), ('nf1', 0.0), ('nem', 0.0)]), 'srl': OrderedDict([('em', 0.0), ('nf1', 2.1166971538652706), ('nem', 0.045433893684688774)]), 'woz.en': OrderedDict([('em', 9.05224787363305), ('nf1', 70.25744708916021), ('nem', 48.663426488456864), ('joint_goal_em', 11.968408262454435), ('turn_request_em', 64.88456865127581), ('turn_goal_em', 60.206561360874844), ('avg_dialogue', 38.42648845686512)])}

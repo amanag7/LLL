@@ -88,7 +88,7 @@ def parse_args():
             args.seq_train_type, "{}_{}".format("_".join(args.tasks),
                 args.gen_lm_sample_percentage) if "lll" in args.seq_train_type else "_".join(args.tasks))
 
-    args.device_ids = GPUtil.getAvailable(maxLoad=0.15, maxMemory=0.15, limit=args.n_gpus)
+    args.device_ids = GPUtil.getAvailable(maxLoad=0.8, maxMemory=0.8, limit=args.n_gpus)
     if len(args.device_ids) == 0:
         logger.error('No available GPUs!')
         raise NotImplementedError("No CPU mode available!")

@@ -1,0 +1,40 @@
+2023-06-27 19:02:39,019 - 0:00:12 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_wandbtest/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 3, 'srl': 3, 'woz.en': 3}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-06-27 19:02:39,019 - 0:00:12 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-06-27 19:02:39,027 - 0:00:12 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-27 19:02:49,098 - 0:00:23 - 10.1s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-27 19:02:51,726 - 0:00:25 - 2.6s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 20760
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-06-27 19:05:22,129 - 0:02:56 - 150.4s - INFO - __main__ - progress 0.578 , lr 5.1E-05 , loss 1.957 , qa loss 1.957 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:07:35,015 - 0:05:08 - 132.9s - INFO - __main__ - epoch 1/3 done , tot steps 1730 , lr 4.2E-05 , loss 1.25 , qa loss 1.25 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:10:25,749 - 0:07:59 - 170.7s - INFO - __main__ - progress 1.578 , lr 3.0E-05 , loss 0.305 , qa loss 0.305 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:12:33,375 - 0:10:07 - 127.6s - INFO - __main__ - epoch 2/3 done , tot steps 3460 , lr 2.1E-05 , loss 0.28 , qa loss 0.28 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:15:24,323 - 0:12:58 - 170.9s - INFO - __main__ - progress 2.578 , lr 8.9E-06 , loss 0.230 , qa loss 0.230 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:17:32,342 - 0:15:06 - 128.0s - INFO - __main__ - epoch 3/3 done , tot steps 5190 , lr 1.0E-07 , loss 0.23 , qa loss 0.23 , lm loss 0.00 , avg batch size 4.0
+The current active adapter is Stack[sst]
+The task with which model is saved sst
+2023-06-27 19:17:42,893 - 0:15:16 - 10.6s - INFO - __main__ - start to train { task: ['srl'], seq train type: lll }
+2023-06-27 19:17:47,275 - 0:15:21 - 4.4s - INFO - utils - writing extra data in ../../model_wandbtest/gpt2/lll/sst_srl_woz.en_0.0/sst/lm.csv ...
+2023-06-27 19:17:47,327 - 0:15:21 - 0.1s - INFO - __main__ - extra training data size: 0
+2023-06-27 19:17:47,578 - 0:15:21 - 0.3s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-27 19:17:50,440 - 0:15:24 - 2.9s - INFO - __main__ - len of train dataset: 6414 , max train batch size 4 , num of opt steps: 19242
+2023-06-27 19:22:52,090 - 0:20:26 - 301.7s - INFO - __main__ - progress 0.624 , lr 5.0E-05 , loss 2.735 , qa loss 2.735 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:25:09,975 - 0:22:43 - 137.9s - INFO - __main__ - epoch 1/3 done , tot steps 1604 , lr 4.2E-05 , loss 2.06 , qa loss 2.06 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:29:29,275 - 0:27:03 - 259.3s - INFO - __main__ - progress 1.624 , lr 2.9E-05 , loss 0.789 , qa loss 0.789 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:32:34,556 - 0:30:08 - 185.3s - INFO - __main__ - epoch 2/3 done , tot steps 3208 , lr 2.1E-05 , loss 0.78 , qa loss 0.78 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:37:34,375 - 0:35:08 - 299.8s - INFO - __main__ - progress 2.624 , lr 7.9E-06 , loss 0.641 , qa loss 0.641 , lm loss 0.000 , avg batch size 4.0
+2023-06-27 19:40:45,490 - 0:38:19 - 191.1s - INFO - __main__ - epoch 3/3 done , tot steps 4812 , lr 1.0E-07 , loss 0.62 , qa loss 0.62 , lm loss 0.00 , avg batch size 4.0
+The current active adapter is Stack[srl]
+The task with which model is saved srl
+2023-06-27 19:40:56,014 - 0:38:29 - 10.5s - INFO - __main__ - start to train { task: ['woz.en'], seq train type: lll }
+2023-06-27 19:41:00,650 - 0:38:34 - 4.6s - INFO - utils - writing extra data in ../../model_wandbtest/gpt2/lll/sst_srl_woz.en_0.0/srl/lm.csv ...
+2023-06-27 19:41:00,719 - 0:38:34 - 0.1s - INFO - __main__ - extra training data size: 0
+2023-06-27 19:41:01,129 - 0:38:35 - 0.4s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-27 19:41:04,104 - 0:38:38 - 3.0s - INFO - __main__ - len of train dataset: 2536 , max train batch size 4 , num of opt steps: 7608
+2023-06-27 19:42:55,021 - 0:40:28 - 110.9s - INFO - __main__ - epoch 1/3 done , tot steps 634 , lr 4.2E-05 , loss 2.04 , qa loss 2.04 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:44:37,792 - 0:42:11 - 102.8s - INFO - __main__ - epoch 2/3 done , tot steps 1268 , lr 2.1E-05 , loss 0.52 , qa loss 0.52 , lm loss 0.00 , avg batch size 4.0
+2023-06-27 19:46:11,852 - 0:43:45 - 94.1s - INFO - __main__ - epoch 3/3 done , tot steps 1902 , lr 9.9E-08 , loss 0.37 , qa loss 0.37 , lm loss 0.00 , avg batch size 4.0
+The current active adapter is Stack[woz_en]
+The task with which model is saved woz_en
+Wall Execution time: 00:43:43
+CPU Execution time: 00:50:18

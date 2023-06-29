@@ -1,0 +1,21 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+wandb: Currently logged in as: sprshag (cl-nlp). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.15.4
+wandb: Run data is saved locally in /u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/wandb/run-20230627_185934-3iolr9vw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run test run
+wandb: ⭐️ View project at https://wandb.ai/cl-nlp/cl-nlp
+wandb: 🚀 View run at https://wandb.ai/cl-nlp/cl-nlp/runs/3iolr9vw
+2023-06-27 18:59:42,659 - 0:00:34 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[3], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_wandbtest/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 3, 'srl': 3, 'woz.en': 3}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 🚀 View run test run at: https://wandb.ai/cl-nlp/cl-nlp/runs/3iolr9vw
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20230627_185934-3iolr9vw/logs
+Traceback (most recent call last):
+  File "train_experiment_prefix_adapter.py", line 296, in <module>
+    model = train([task_id], model)
+  File "train_experiment_prefix_adapter.py", line 30, in train
+    wandb.watch(model)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/wandb/sdk/wandb_watch.py", line 71, in watch
+    raise ValueError(
+ValueError: Expected a pytorch model (torch.nn.Module). Received <class 'NoneType'>
