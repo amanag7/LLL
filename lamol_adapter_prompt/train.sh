@@ -56,3 +56,45 @@ nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root
 nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_am3 --seq_train_type lll --model_name gpt2 --n_gpus 3 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl zre woz.en --lm_lambda 0.0 > Trainlogs_am3_4zre_preadap.out
 
 python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_wandbtest --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 3 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ccmm1 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ccmm1_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm10 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm10_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm20 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm20_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm40 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm40_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm50 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm50_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_aamm1 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_aamm1_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ppmm1 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ppmm1_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ccmr1 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ccmr1_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ccmr2 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ccmr2_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ccmr3 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ccmr3_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ccmm2 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks wikisql ag amazon sst srl woz.en --lm_lambda 0.0 > Trainlogs_ccmm2_6f_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_aamm2 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks wikisql ag amazon sst srl woz.en --lm_lambda 0.0 > Trainlogs_aamm2_6f_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ppmm2 --seq_train_type lll --model_name gpt2 --n_gpus 2 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks wikisql ag amazon sst srl woz.en --lm_lambda 0.0 > Trainlogs_ppmm2_6f_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm80 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm80_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_cm120 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 20 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_cm120_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao1 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks sst srl woz.en --lm_lambda 0.0 > Trainlogs_ao1_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao2 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks woz.en sst srl --lm_lambda 0.0 > Trainlogs_ao2_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao3 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks srl woz.en sst --lm_lambda 0.0 > Trainlogs_ao3_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao4 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks sst woz.en srl --lm_lambda 0.0 > Trainlogs_ao4_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao5 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks srl sst woz.en --lm_lambda 0.0 > Trainlogs_ao5_3og_preadap.out
+
+nohup python train_experiment_prefix_adapter.py --data_dir data --model_dir_root model_ao6 --seq_train_type lll --model_name gpt2 --n_gpus 1 --n_workers 75 --fp32 --n_train_epochs 8 --gen_lm_sample_percentage 0.00 --tasks woz.en srl sst --lm_lambda 0.0 > Trainlogs_ao6_3og_preadap.out

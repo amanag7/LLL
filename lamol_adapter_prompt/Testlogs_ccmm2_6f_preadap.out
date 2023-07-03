@@ -1,0 +1,26 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-07-02 12:29:43,750 - 0:00:05 - 0.0s - INFO - __main__ - args = Namespace(adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[1], dynamic_epochs=False, fp32=False, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_ccmm2/gpt2/lll/wikisql_ag_amazon_sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'wikisql': 20, 'ag': 20, 'amazon': 20, 'sst': 20, 'srl': 20, 'woz.en': 20}, n_warmup_ratio=0.005, n_workers=25, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['wikisql', 'ag', 'amazon', 'sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-07-02 12:29:56,466 - 0:00:18 - 12.7s - INFO - __main__ - task: wikisql, epoch: 20
+2023-07-02 12:29:56,467 - 0:00:18 - 0.0s - INFO - __main__ - start to test { task: wikisql (load) wikisql (eval), seq train type: lll }
+2023-07-02 12:31:02,797 - 0:01:24 - 66.3s - INFO - __main__ - len of test dataset: 15878
+2023-07-03 14:53:05,750 - 1 day, 2:23:27 - 94923.0s - INFO - __main__ - score: {'wikisql': OrderedDict([('lfem', 68.67363647814587), ('em', 41.025318050132256), ('nf1', 90.13347930754762), ('nem', 45.352059453331655)]), 'ag': None, 'amazon': None, 'sst': None, 'srl': None, 'woz.en': None}
+2023-07-03 14:53:16,775 - 1 day, 2:23:38 - 11.0s - INFO - __main__ - task: ag, epoch: 20
+2023-07-03 14:53:16,775 - 1 day, 2:23:38 - 0.0s - INFO - __main__ - start to test { task: ag (load) ag (eval), seq train type: lll }
+2023-07-03 14:53:18,509 - 1 day, 2:23:40 - 1.7s - INFO - __main__ - len of test dataset: 7600
+2023-07-03 15:21:05,906 - 1 day, 2:51:27 - 1667.4s - INFO - __main__ - score: {'wikisql': None, 'ag': OrderedDict([('em', 93.93421052631578), ('nf1', 93.93421052631578), ('nem', 93.93421052631578)]), 'amazon': None, 'sst': None, 'srl': None, 'woz.en': None}
+2023-07-03 15:21:16,895 - 1 day, 2:51:38 - 11.0s - INFO - __main__ - task: amazon, epoch: 20
+2023-07-03 15:21:16,896 - 1 day, 2:51:38 - 0.0s - INFO - __main__ - start to test { task: amazon (load) amazon (eval), seq train type: lll }
+2023-07-03 15:21:18,930 - 1 day, 2:51:40 - 2.0s - INFO - __main__ - len of test dataset: 7600
+2023-07-03 15:46:32,367 - 1 day, 3:16:54 - 1513.4s - INFO - __main__ - score: {'wikisql': None, 'ag': None, 'amazon': OrderedDict([('em', 62.31578947368421), ('nf1', 75.26973684210603), ('nem', 62.31578947368421)]), 'sst': None, 'srl': None, 'woz.en': None}
+2023-07-03 15:46:43,435 - 1 day, 3:17:05 - 11.1s - INFO - __main__ - task: sst, epoch: 20
+2023-07-03 15:46:43,435 - 1 day, 3:17:05 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-07-03 15:46:44,790 - 1 day, 3:17:06 - 1.4s - INFO - __main__ - len of test dataset: 1821
+2023-07-03 15:46:47,116 - 1 day, 3:17:09 - 2.3s - INFO - __main__ - score: {'wikisql': None, 'ag': None, 'amazon': None, 'sst': OrderedDict([('em', 89.8956617243273), ('nf1', 89.8956617243273), ('nem', 89.8956617243273)]), 'srl': None, 'woz.en': None}
+2023-07-03 15:46:57,860 - 1 day, 3:17:19 - 10.7s - INFO - __main__ - task: srl, epoch: 20
+2023-07-03 15:46:57,860 - 1 day, 3:17:19 - 0.0s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-07-03 15:46:59,474 - 1 day, 3:17:21 - 1.6s - INFO - __main__ - len of test dataset: 2201
+2023-07-03 16:10:23,472 - 1 day, 3:40:45 - 1404.0s - INFO - __main__ - score: {'wikisql': None, 'ag': None, 'amazon': None, 'sst': None, 'srl': OrderedDict([('em', 50.249886415265784), ('nf1', 68.54206111274141), ('nem', 54.975011358473424)]), 'woz.en': None}
+2023-07-03 16:10:34,557 - 1 day, 3:40:56 - 11.1s - INFO - __main__ - task: woz.en, epoch: 20
+2023-07-03 16:10:34,557 - 1 day, 3:40:56 - 0.0s - INFO - __main__ - start to test { task: woz.en (load) woz.en (eval), seq train type: lll }
+2023-07-03 16:10:35,951 - 1 day, 3:40:58 - 1.4s - INFO - __main__ - len of test dataset: 1646
+2023-07-03 16:22:03,723 - 1 day, 3:52:25 - 687.8s - INFO - __main__ - score: {'wikisql': None, 'ag': None, 'amazon': None, 'sst': None, 'srl': None, 'woz.en': OrderedDict([('em', 16.52490886998785), ('nf1', 93.03120836231409), ('nem', 84.93317132442284), ('joint_goal_em', 82.32077764277035), ('turn_request_em', 91.91980558930742), ('turn_goal_em', 89.73268529769138), ('avg_dialogue', 87.12029161603888)])}

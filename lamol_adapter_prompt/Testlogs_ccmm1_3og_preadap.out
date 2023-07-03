@@ -1,0 +1,9 @@
+No available GPUs!
+Traceback (most recent call last):
+  File "test_adapter_from_scratch.py", line 9, in <module>
+    from settings import args, MODEL_CLASS, TOKENIZER, SPECIAL_TOKEN_IDS, init_logging
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/settings.py", line 186, in <module>
+    args, MODEL_CONFIG, MODEL_CLASS, TOKENIZER, CONFIG_CLASS, SPECIAL_TOKEN_IDS, SPECIAL_TOKENS, DATA_ATTRS, TOKENS_WEIGHT = parse_args()
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/settings.py", line 94, in parse_args
+    raise NotImplementedError("No CPU mode available!")
+NotImplementedError: No CPU mode available!

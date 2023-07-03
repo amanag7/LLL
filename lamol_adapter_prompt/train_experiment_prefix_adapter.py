@@ -19,11 +19,11 @@ from torch.nn import CrossEntropyLoss
 from transformers.adapters import ConfigUnion, AdapterConfig, PrefixTuningConfig, ParallelConfig
 logger = logging.getLogger(__name__)
 
-import wandb
-wandb.init(name='test run',
-           project='cl-nlp',
-           notes='This is to setup wandb',
-           tags=['Adapters', 'Prefix tuning'])
+# import wandb
+# wandb.init(name='test run',
+#            project='cl-nlp',
+#            notes='This is to setup wandb',
+#            tags=['Adapters', 'Prefix tuning'])
 
 
 def train(task_ids, model):
@@ -35,10 +35,10 @@ def train(task_ids, model):
     make_dir(model_dir)
 
     adapter_config = ConfigUnion(
-                            # AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=16, non_linearity="relu", init_weights="mam_adapter"),
+                            AdapterConfig(mh_adapter=True, output_adapter=False, reduction_factor=4, non_linearity="relu", init_weights="mam_adapter"),
 #                             AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=8, non_linearity="relu"),
-                            PrefixTuningConfig(cross_prefix=True, prefix_length=30, bottleneck_size=256,non_linearity='relu'),
-                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=2, non_linearity="relu", init_weights="mam_adapter"),
+                            # PrefixTuningConfig(cross_prefix=True, prefix_length=160, bottleneck_size=800,non_linearity='relu',leave_out=[1,3,5,7,9,11]),
+                            AdapterConfig(mh_adapter=False, output_adapter=True, reduction_factor=4, non_linearity="relu", init_weights="mam_adapter", leave_out=[1,3,5,7,9,11]),
                             # ParallelConfig(scaling="learned")
                         )
     if task_ids[0]>0:
@@ -153,7 +153,7 @@ def train(task_ids, model):
     if task_ids[0]==0:
         # Adding Adapter Modules
 #         adapter_config =  ConfigUnion(PrefixTuningConfig(bottleneck_size=800), ParallelConfig(),)
-        adapter_name = args.tasks[task_ids[0]]
+        adapter_name = args.tasks[task_ids[0]].replace(".", "_")
         model.add_adapter(adapter_name, config=adapter_config)
         model.set_active_adapters(adapter_name)
         model.train_adapter(adapter_name)
@@ -167,7 +167,7 @@ def train(task_ids, model):
 #         model.train_adapter(adapter_name)      ##Change
 #         model = model.to(args.device_ids[0])
     
-    wandb.watch(model)
+    # wandb.watch(model)
     parallel_model = DataParallelModel(WrapModel(model), args.device_ids)
     
     param_optimizer = list(model.named_parameters())  
@@ -253,10 +253,10 @@ def train(task_ids, model):
         logger.info('epoch {}/{} done , tot steps {} , lr {:.1E} , loss {:.2f} , qa loss {:.2f} , lm loss {:.2f} , avg batch size {:.1f}'.format(
             ep+1, n_train_epochs, tot_n_steps, scheduler.get_lr(), cum_loss/cur_n_inputs, cum_qa_loss/cur_n_inputs, cum_lm_loss/cur_n_inputs, cur_n_inputs/(n_steps+1)
         ))
-        wandb.log({
-            "Epoch":ep+1,
-            "Train Loss": cum_loss/cur_n_inputs
-            })
+        # wandb.log({
+        #     "Epoch":ep+1,
+        #     "Train Loss": cum_loss/cur_n_inputs
+        #     })
 
     # task end do for reg
     if args.seq_train_type in REG_TYPE_KEYS:

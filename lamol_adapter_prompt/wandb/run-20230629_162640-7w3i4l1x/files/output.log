@@ -1,0 +1,82 @@
+2023-06-29 16:26:44,591 - 0:00:13 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_cm10/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 20, 'srl': 20, 'woz.en': 20}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-06-29 16:26:44,591 - 0:00:13 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-06-29 16:26:44,592 - 0:00:13 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-29 16:26:47,962 - 0:00:16 - 3.4s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-29 16:26:51,365 - 0:00:19 - 3.4s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 138400
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-06-29 16:28:54,384 - 0:02:22 - 123.0s - INFO - __main__ - progress 0.578 , lr 6.1E-05 , loss 1.458 , qa loss 1.458 , lm loss 0.000 , avg batch size 4.0
+2023-06-29 16:30:22,757 - 0:03:51 - 88.4s - INFO - __main__ - epoch 1/20 done , tot steps 1730 , lr 5.9E-05 , loss 0.97 , qa loss 0.97 , lm loss 0.00 , avg batch size 4.0
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7efbb05caa60>
+Traceback (most recent call last):
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1479, in __del__
+    self._shutdown_workers()
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1443, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/popen_fork.py", line 44, in wait
+    if not wait([self.sentinel], timeout):
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt:
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/linecache.py", line 47, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/linecache.py", line 136, in updatecache
+    with tokenize.open(fullname) as fp:
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/tokenize.py", line 394, in open
+    encoding, lines = detect_encoding(buffer.readline)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/tokenize.py", line 363, in detect_encoding
+    first = read_or_stop()
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/tokenize.py", line 321, in read_or_stop
+    return readline()
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "train_experiment_prefix_adapter.py", line 297, in <module>
+    model = train([task_id], model)
+  File "train_experiment_prefix_adapter.py", line 225, in train
+    losses = get_losses(parallel_model, cqa, Y, gen_X, gen_Y, train_loss_fct)
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/utils.py", line 46, in get_losses
+    qa_logits = parallel_model(cqa)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/parallel.py", line 16, in forward
+    return (self.module(*inputs[0], **kwargs[0]),)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/utils.py", line 508, in forward
+    outputs = self.model(input_ids)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1083, in forward
+    transformer_outputs = self.transformer(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/adapters/context.py", line 108, in wrapper_func
+    results = f(self, *args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 920, in forward
+    outputs = block(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 418, in forward
+    attn_outputs = self.attn(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 346, in forward
+    key, value, attention_mask = self.prefix_tuning(key, value, hidden_states, attention_mask)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/adapters/prefix_tuning.py", line 658, in forward
+    key_states, value_states, _, attention_mask = self.adapter_stack(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/adapters/prefix_tuning.py", line 444, in adapter_stack
+    key_states, value_states, _, attention_mask = self.single_forward(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/adapters/prefix_tuning.py", line 345, in single_forward
+    prefix_keys, prefix_values = adjust_tensors_for_parallel(key_states, prefix_keys, prefix_values)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/adapters/composition.py", line 208, in adjust_tensors_for_parallel
+    new_tensor = tensor.repeat(*repeats)
+KeyboardInterrupt

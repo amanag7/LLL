@@ -1,0 +1,40 @@
+2023-06-29 16:33:49,845 - 0:00:13 - 0.0s - INFO - __main__ - args = Namespace(REG_TYPE_KEYS=['mas', 'ewc'], adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[0], dynamic_epochs=False, fp32=True, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_cm10/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 20, 'srl': 20, 'woz.en': 20}, n_warmup_ratio=0.005, n_workers=75, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-06-29 16:33:49,845 - 0:00:13 - 0.0s - INFO - __main__ - start to train { task: ['sst'], seq train type: lll }
+2023-06-29 16:33:49,845 - 0:00:13 - 0.0s - INFO - __main__ - extra training data size: 0
+2023-06-29 16:33:52,573 - 0:00:16 - 2.7s - INFO - __main__ - gen token = __gen__ , gen token id = 50260
+2023-06-29 16:33:56,173 - 0:00:19 - 3.6s - INFO - __main__ - len of train dataset: 6920 , max train batch size 4 , num of opt steps: 138400
+/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+2023-06-29 16:35:30,142 - 0:01:53 - 94.0s - INFO - __main__ - progress 0.578 , lr 6.1E-05 , loss 2.141 , qa loss 2.141 , lm loss 0.000 , avg batch size 4.0
+2023-06-29 16:37:00,549 - 0:03:24 - 90.4s - INFO - __main__ - epoch 1/20 done , tot steps 1730 , lr 5.9E-05 , loss 1.36 , qa loss 1.36 , lm loss 0.00 , avg batch size 4.0
+2023-06-29 16:38:58,239 - 0:05:21 - 117.7s - INFO - __main__ - progress 1.578 , lr 5.8E-05 , loss 0.272 , qa loss 0.272 , lm loss 0.000 , avg batch size 4.0
+2023-06-29 16:40:30,225 - 0:06:53 - 92.0s - INFO - __main__ - epoch 2/20 done , tot steps 3460 , lr 5.6E-05 , loss 0.26 , qa loss 0.26 , lm loss 0.00 , avg batch size 4.0
+2023-06-29 16:42:30,414 - 0:08:53 - 120.2s - INFO - __main__ - progress 2.578 , lr 5.4E-05 , loss 0.222 , qa loss 0.222 , lm loss 0.000 , avg batch size 4.0
+2023-06-29 16:44:01,233 - 0:10:24 - 90.8s - INFO - __main__ - epoch 3/20 done , tot steps 5190 , lr 5.3E-05 , loss 0.22 , qa loss 0.22 , lm loss 0.00 , avg batch size 4.0
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7fc8ffc0ba60>
+Traceback (most recent call last):
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1479, in __del__
+    self._shutdown_workers()
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1443, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/popen_fork.py", line 44, in wait
+    if not wait([self.sentinel], timeout):
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt:
+Traceback (most recent call last):
+  File "train_experiment_prefix_adapter.py", line 297, in <module>
+    model = train([task_id], model)
+  File "train_experiment_prefix_adapter.py", line 229, in train
+    train_once(loss, n_inputs)
+  File "/u/student/2021/cs21mtech11006/LLL/lamol_adapter_prompt/utils.py", line 354, in __call__
+    loss.backward()
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/student/2021/cs21mtech11006/anaconda3/envs/lamol/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

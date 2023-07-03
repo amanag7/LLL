@@ -1,0 +1,9 @@
+Not all gpus support fp16 training! Will use fp32 instead.
+2023-07-03 23:43:14,970 - 0:00:06 - 0.0s - INFO - __main__ - args = Namespace(adam_epsilon=0.0001, add_task_tokens=False, data_dir='../../data', debug=False, decay_style='linear', device_ids=[1], dynamic_epochs=False, fp32=False, gen_lm_sample_percentage=0.0, learning_rate=6.25e-05, lm_lambda=0.0, logging_steps=1000, lr_schedule='warmup_linear', max_grad_norm=1, max_len=1024, max_n_epochs=9, memory_sizes=[40537.0], min_batch_size=4, min_n_steps=1500, model_dir_root='../../model_ao1/gpt2/lll/sst_srl_woz.en_0.0', model_name='gpt2', n_gpus=1, n_train_epochs={'sst': 8, 'srl': 8, 'woz.en': 8}, n_warmup_ratio=0.005, n_workers=25, qp_margin=0.5, real_sample=False, reg_lambda=1.0, seed=42, seq_train_type='lll', skip_tasks=None, tasks=['sst', 'srl', 'woz.en'], temperature_lm=1.0, temperature_qa=1.0, test_batch_size=[14187], tokens_weight=5, top_k_lm=20, top_k_qa=20, top_p_lm=0.0, top_p_qa=0.0, train_batch_size=[14187], unbound=0, use_sep=False, weight_decay=0.01)
+2023-07-03 23:43:28,440 - 0:00:19 - 13.5s - INFO - __main__ - task: sst, epoch: 8
+2023-07-03 23:43:28,440 - 0:00:19 - 0.0s - INFO - __main__ - start to test { task: sst (load) sst (eval), seq train type: lll }
+2023-07-03 23:43:29,540 - 0:00:21 - 1.1s - INFO - __main__ - len of test dataset: 1821
+2023-07-03 23:43:32,013 - 0:00:23 - 2.5s - INFO - __main__ - score: {'sst': OrderedDict([('em', 90.71938495332235), ('nf1', 90.71938495332235), ('nem', 90.71938495332235)]), 'srl': None, 'woz.en': None}
+2023-07-03 23:43:48,463 - 0:00:40 - 16.5s - INFO - __main__ - task: srl, epoch: 8
+2023-07-03 23:43:48,464 - 0:00:40 - 0.0s - INFO - __main__ - start to test { task: srl (load) srl (eval), seq train type: lll }
+2023-07-03 23:43:49,514 - 0:00:41 - 1.1s - INFO - __main__ - len of test dataset: 2201
